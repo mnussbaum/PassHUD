@@ -29,6 +29,7 @@ class HUDViewController: NSViewController  {
         
         self.searchField.delegate = self
         
+        self.searchResultsTableView.headerView = nil
         self.searchResultsTableView.delegate = self
         self.searchResultsTableView.dataSource = self
         self.searchResultsTableView.target = self
@@ -43,17 +44,7 @@ extension HUDViewController: NSSearchFieldDelegate {
             launchPath: "/usr/bin/env",
             arguments: ["pass", "find", textField.stringValue.lowercased()],
             caller: self
-            ).launch()
-    }
-    
-    
-    @objc func searchResultsViewClick(_ sender:AnyObject) {
-        let selectedRow = self.searchResultsTableView.selectedRow
-        if selectedRow < 0 {
-            return
-        }
-        
-        let item = self.searchResults?[selectedRow]
+        ).launch()
     }
 }
 
@@ -63,7 +54,8 @@ extension HUDViewController: CommandOutputStreamerDelegate {
             .split(separator: "\n")
             .filter({ !$0.hasPrefix("Search Terms: ") })
             .map({ String($0.dropFirst(4)) })
-
+            .filter({ !$0.isEmpty })
+        
         self.searchResultsTableView.reloadData()
     }
 }
@@ -77,9 +69,29 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
         _ tableView: NSTableView,
         objectValueFor tableColumn: NSTableColumn?,
         row: Int
-        ) -> Any?{
-        
+    ) -> Any?{
         return (self.searchResults?[row])!
+    }
+    
+    @objc func searchResultsViewClick(_ sender: AnyObject) {
+        let selectedRow = self.searchResultsTableView.selectedRow
+        if selectedRow < 0 {
+            return
+        }
+        
+        guard let selectedPassword = self.searchResults?[selectedRow] else {
+            fatalError("Failed to find selected password in search results")
+        }
+
+        let task = Process()
+        task.launchPath = "/usr/bin/env"
+        task.arguments = ["pass", "show", "--clip", selectedPassword]
+        var environment = ProcessInfo.processInfo.environment
+        environment["PATH"] = "/usr/local/opt/gettext/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/bin:/bin"
+        task.environment = environment
+        task.launch()
+        task.waitUntilExit()
+        // TODO: Check task.terminationStatus
     }
 }
 
@@ -90,7 +102,7 @@ extension HUDViewController {
             name: NSStoryboard.Name("Main"),
             bundle: nil
         ).instantiateController(withIdentifier: identifier) as? HUDViewController else {
-                fatalError("Failed to instantiate HUDViewController")
+            fatalError("Failed to instantiate HUDViewController")
         }
         
         return viewController

@@ -12,7 +12,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem = NSStatusBar
         .system
-        .statusItem(withLength:NSStatusItem.squareLength)
+        .statusItem(withLength: NSStatusItem.squareLength)
     let hudWindow = HUDWindow()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {

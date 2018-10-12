@@ -56,15 +56,6 @@ class CommandOutputStreamer {
         }
     }
     
-    // When task has finished
-    //        var dataReady : NSObjectProtocol!
-    //        dataReady = NotificationCenter.default.addObserver(
-    //            forName: Process.didTerminateNotification,
-    //            object: pipe.fileHandleForReading, queue: nil
-    //        ) { notification -> Void in
-    //            print("Task terminated!")
-    //            NotificationCenter.default.removeObserver(dataReady)
-    //        }
     func launch() {
         return task.launch()
     }
