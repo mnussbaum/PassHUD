@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		7B99C434216F21310025D6ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C433216F21310025D6ED /* AppDelegate.swift */; };
-		7B99C436216F21310025D6ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C435216F21310025D6ED /* ViewController.swift */; };
-		7B99C438216F21340025D6ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B99C437216F21340025D6ED /* Assets.xcassets */; };
 		7B99C43B216F21340025D6ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B99C439216F21340025D6ED /* Main.storyboard */; };
 		7B99C447216F21340025D6ED /* pass_hudTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C446216F21340025D6ED /* pass_hudTests.swift */; };
 		7B99C452216F21340025D6ED /* pass_hudUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C451216F21340025D6ED /* pass_hudUITests.swift */; };
+		7B99C463216F23AF0025D6ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B99C462216F23AF0025D6ED /* Assets.xcassets */; };
+		7B99C46F216F2EEA0025D6ED /* HUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C46E216F2EEA0025D6ED /* HUDViewController.swift */; };
+		7B99C471216F3C0A0025D6ED /* CommandOutputStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C470216F3C0A0025D6ED /* CommandOutputStreamer.swift */; };
+		7B99C47321712A8D0025D6ED /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C47221712A8D0025D6ED /* HUDView.swift */; };
+		7B99C47921713C940025D6ED /* HUDSearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C47821713C940025D6ED /* HUDSearchField.swift */; };
+		7B99C47B21713E850025D6ED /* HUDTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C47A21713E850025D6ED /* HUDTableView.swift */; };
+		7B99C47D2171458E0025D6ED /* HUDWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C47C2171458E0025D6ED /* HUDWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +40,6 @@
 /* Begin PBXFileReference section */
 		7B99C430216F21310025D6ED /* pass-hud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pass-hud.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B99C433216F21310025D6ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7B99C435216F21310025D6ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7B99C437216F21340025D6ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B99C43A216F21340025D6ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7B99C43C216F21340025D6ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B99C43D216F21340025D6ED /* pass_hud.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pass_hud.entitlements; sourceTree = "<group>"; };
@@ -46,6 +49,13 @@
 		7B99C44D216F21340025D6ED /* pass-hudUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pass-hudUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B99C451216F21340025D6ED /* pass_hudUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pass_hudUITests.swift; sourceTree = "<group>"; };
 		7B99C453216F21340025D6ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B99C462216F23AF0025D6ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7B99C46E216F2EEA0025D6ED /* HUDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDViewController.swift; sourceTree = "<group>"; };
+		7B99C470216F3C0A0025D6ED /* CommandOutputStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandOutputStreamer.swift; sourceTree = "<group>"; };
+		7B99C47221712A8D0025D6ED /* HUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
+		7B99C47821713C940025D6ED /* HUDSearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDSearchField.swift; sourceTree = "<group>"; };
+		7B99C47A21713E850025D6ED /* HUDTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDTableView.swift; sourceTree = "<group>"; };
+		7B99C47C2171458E0025D6ED /* HUDWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,10 +106,15 @@
 		7B99C432216F21310025D6ED /* pass-hud */ = {
 			isa = PBXGroup;
 			children = (
-				7B99C433216F21310025D6ED /* AppDelegate.swift */,
-				7B99C435216F21310025D6ED /* ViewController.swift */,
-				7B99C437216F21340025D6ED /* Assets.xcassets */,
+				7B99C462216F23AF0025D6ED /* Assets.xcassets */,
 				7B99C439216F21340025D6ED /* Main.storyboard */,
+				7B99C433216F21310025D6ED /* AppDelegate.swift */,
+				7B99C47C2171458E0025D6ED /* HUDWindow.swift */,
+				7B99C46E216F2EEA0025D6ED /* HUDViewController.swift */,
+				7B99C47221712A8D0025D6ED /* HUDView.swift */,
+				7B99C47A21713E850025D6ED /* HUDTableView.swift */,
+				7B99C47821713C940025D6ED /* HUDSearchField.swift */,
+				7B99C470216F3C0A0025D6ED /* CommandOutputStreamer.swift */,
 				7B99C43C216F21340025D6ED /* Info.plist */,
 				7B99C43D216F21340025D6ED /* pass_hud.entitlements */,
 			);
@@ -228,7 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B99C438216F21340025D6ED /* Assets.xcassets in Resources */,
+				7B99C463216F23AF0025D6ED /* Assets.xcassets in Resources */,
 				7B99C43B216F21340025D6ED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,7 +269,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B99C436216F21310025D6ED /* ViewController.swift in Sources */,
+				7B99C47321712A8D0025D6ED /* HUDView.swift in Sources */,
+				7B99C471216F3C0A0025D6ED /* CommandOutputStreamer.swift in Sources */,
+				7B99C46F216F2EEA0025D6ED /* HUDViewController.swift in Sources */,
+				7B99C47D2171458E0025D6ED /* HUDWindow.swift in Sources */,
+				7B99C47921713C940025D6ED /* HUDSearchField.swift in Sources */,
+				7B99C47B21713E850025D6ED /* HUDTableView.swift in Sources */,
 				7B99C434216F21310025D6ED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

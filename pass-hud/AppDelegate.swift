@@ -10,11 +10,27 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-
+    let statusItem = NSStatusBar
+        .system
+        .statusItem(withLength:NSStatusItem.squareLength)
+    let hudWindow = HUDWindow()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        if let button = statusItem.button {
+            button.image = NSImage(named:NSImage.Name("StatusBarButtonImage"))
+            button.action = #selector(activateHUD(_:))
+        }
+        
+        self.hudWindow.setAppearance()
+        self.hudWindow.contentViewController = HUDViewController.create()
+
+    }
+
+    @objc func activateHUD(_ sender: Any?) {
+        self.hudWindow.center()
+        self.hudWindow.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
