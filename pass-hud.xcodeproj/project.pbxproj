@@ -18,6 +18,7 @@
 		7B99C47921713C940025D6ED /* HUDSearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C47821713C940025D6ED /* HUDSearchField.swift */; };
 		7B99C47B21713E850025D6ED /* HUDTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C47A21713E850025D6ED /* HUDTableView.swift */; };
 		7B99C47D2171458E0025D6ED /* HUDWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C47C2171458E0025D6ED /* HUDWindow.swift */; };
+		7B99C47F217157EF0025D6ED /* HotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C47E217157EF0025D6ED /* HotKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		7B99C47821713C940025D6ED /* HUDSearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDSearchField.swift; sourceTree = "<group>"; };
 		7B99C47A21713E850025D6ED /* HUDTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDTableView.swift; sourceTree = "<group>"; };
 		7B99C47C2171458E0025D6ED /* HUDWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDWindow.swift; sourceTree = "<group>"; };
+		7B99C47E217157EF0025D6ED /* HotKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				7B99C462216F23AF0025D6ED /* Assets.xcassets */,
 				7B99C439216F21340025D6ED /* Main.storyboard */,
 				7B99C433216F21310025D6ED /* AppDelegate.swift */,
+				7B99C47E217157EF0025D6ED /* HotKey.swift */,
 				7B99C47C2171458E0025D6ED /* HUDWindow.swift */,
 				7B99C46E216F2EEA0025D6ED /* HUDViewController.swift */,
 				7B99C47221712A8D0025D6ED /* HUDView.swift */,
@@ -272,6 +275,7 @@
 				7B99C47321712A8D0025D6ED /* HUDView.swift in Sources */,
 				7B99C471216F3C0A0025D6ED /* CommandOutputStreamer.swift in Sources */,
 				7B99C46F216F2EEA0025D6ED /* HUDViewController.swift in Sources */,
+				7B99C47F217157EF0025D6ED /* HotKey.swift in Sources */,
 				7B99C47D2171458E0025D6ED /* HUDWindow.swift in Sources */,
 				7B99C47921713C940025D6ED /* HUDSearchField.swift in Sources */,
 				7B99C47B21713E850025D6ED /* HUDTableView.swift in Sources */,

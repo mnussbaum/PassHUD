@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Carbon
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -23,7 +24,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         self.hudWindow.setAppearance()
         self.hudWindow.contentViewController = HUDViewController.create()
-
+        
+        HotKey.register(UInt32(kVK_ANSI_Slash), modifiers: UInt32(cmdKey), block: {
+            self.activateHUD(nil)
+        })
     }
 
     @objc func activateHUD(_ sender: Any?) {
@@ -34,7 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+        // TODO: unregister hotkey
     }
 
 
