@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  pass-hud
+//  PassHUD
 //
 //  Created by Nussbaum, Michael on 10/10/18.
 //  Copyright © 2018 mnussbaum. All rights reserved.

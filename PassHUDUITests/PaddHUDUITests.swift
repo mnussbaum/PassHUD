@@ -1,6 +1,6 @@
 //
-//  pass_hudUITests.swift
-//  pass-hudUITests
+//  PassHUDUITests.swift
+//  PassHUDUITests
 //
 //  Created by Nussbaum, Michael on 10/10/18.
 //  Copyright © 2018 mnussbaum. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class pass_hudUITests: XCTestCase {
+class PassHUDUITests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

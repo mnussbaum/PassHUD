@@ -1,6 +1,6 @@
 //
 //  HUDViewController.swift
-//  pass-hud
+//  PassHUD
 //
 //  Created by Nussbaum, Michael on 10/11/18.
 //  Copyright © 2018 mnussbaum. All rights reserved.
@@ -36,6 +36,16 @@ class HUDViewController: NSViewController  {
         self.searchResultsTableView.action = #selector(searchResultsViewClick(_:))
     }
 }
+
+// TODO: Make arrow keys useful for navigation
+// TODO: Show favicons
+// TODO: Show decrypted metadata
+// TODO: Make dissappear when focus is lost
+// TODO: Make dissappear when PW is copied
+// TODO: Deal with space escaping in PW names
+// TODO: Log errors
+// TODO: Respond to enter key
+
 
 extension HUDViewController: NSSearchFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
