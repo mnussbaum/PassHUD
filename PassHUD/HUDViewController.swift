@@ -42,7 +42,6 @@ class HUDViewController: NSViewController  {
 // TODO: Show decrypted metadata
 // TODO: Make dissappear when focus is lost
 // TODO: Make dissappear when PW is copied
-// TODO: Deal with space escaping in PW names
 // TODO: Log errors
 // TODO: Respond to enter key
 
@@ -65,16 +64,18 @@ extension HUDViewController: CommandOutputStreamerDelegate {
             .filter({ !$0.hasPrefix("Search Terms: ") })
             .map({ String($0.dropFirst(4)) })
             .filter({ !$0.isEmpty })
-        
+            .map({ $0.replacingOccurrences(of: "\\ ", with: " ") })
+
         self.searchResultsTableView.reloadData()
     }
 }
+
 
 extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return self.searchResults?.count ?? 0
     }
-    
+
     func tableView(
         _ tableView: NSTableView,
         objectValueFor tableColumn: NSTableColumn?,
