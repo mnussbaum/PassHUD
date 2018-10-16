@@ -7,18 +7,18 @@
 //
 
 import Cocoa
+import Carbon
 
 class HUDViewController: NSViewController  {
-    
+
     @IBOutlet weak var searchField: NSSearchField!
     @IBOutlet weak var searchResultsTableView: NSTableView!
     var searchResults: [String]?
     let visualEffect = NSVisualEffectView()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.visualEffect.blendingMode = .behindWindow
         self.visualEffect.state = .followsWindowActiveState
         self.visualEffect.material = .dark
@@ -26,25 +26,64 @@ class HUDViewController: NSViewController  {
         self.visualEffect.frame = self.view.frame
         self.visualEffect.subviews = [self.view]
         self.view = self.visualEffect
-        
+
         self.searchField.delegate = self
-        
+
         self.searchResultsTableView.headerView = nil
         self.searchResultsTableView.delegate = self
         self.searchResultsTableView.dataSource = self
         self.searchResultsTableView.target = self
-        self.searchResultsTableView.action = #selector(searchResultsViewClick(_:))
+        self.searchResultsTableView.action = #selector(searchResultsViewClickHandler(_:))
+
+        NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
+            return self.keyDown(with: $0)
+        }
+    }
+
+    func keyDown(with event: NSEvent) -> NSEvent? {
+        if Int(event.keyCode) == kVK_Return {
+            self.searchResultsViewClick()
+            
+            return nil
+        } else if Int(event.keyCode) == kVK_DownArrow && self.isFocused(view: self.searchField) {
+            self.view.window?.makeFirstResponder(self.searchResultsTableView)
+            self.searchResultsTableView.selectRowIndexes(
+                IndexSet(integer: 0),
+                byExtendingSelection: false
+            )
+
+            return nil
+        } else if Int(event.keyCode) == kVK_UpArrow && self.isFocused(view: self.searchResultsTableView) && self.searchResultsTableView.selectedRow == 0 {
+            
+            self.view.window?.makeFirstResponder(self.searchField)
+            self.searchField.currentEditor()?.moveToEndOfLine(nil)
+            
+            self.searchResultsTableView.deselectAll(nil)
+            
+            return nil
+        } else {
+            return event
+        }
+    }
+    
+    func isFocused(view: NSView) -> Bool {
+        let focusedView = self.view.window?.firstResponder as! NSView
+        if focusedView == view {
+            return true
+        }
+
+        return focusedView.isDescendant(of: view)
     }
 }
 
+// TODO: Respond to enter key
 // TODO: Make arrow keys useful for navigation
 // TODO: Show favicons
 // TODO: Show decrypted metadata
 // TODO: Make dissappear when focus is lost
 // TODO: Make dissappear when PW is copied
 // TODO: Log errors
-// TODO: Respond to enter key
-
+// TODO: Prompt to load at startup
 
 extension HUDViewController: NSSearchFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
@@ -84,16 +123,17 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
         return (self.searchResults?[row])!
     }
     
-    @objc func searchResultsViewClick(_ sender: AnyObject) {
-        let selectedRow = self.searchResultsTableView.selectedRow
+    func searchResultsViewClick() {
+        var selectedRow = self.searchResultsTableView.selectedRow
         if selectedRow < 0 {
-            return
+            selectedRow = 0
         }
         
         guard let selectedPassword = self.searchResults?[selectedRow] else {
-            fatalError("Failed to find selected password in search results")
+            print("Failed to find selected password in search results")
+            return
         }
-
+        
         let task = Process()
         task.launchPath = "/usr/bin/env"
         task.arguments = ["pass", "show", "--clip", selectedPassword]
@@ -103,6 +143,10 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
         task.launch()
         task.waitUntilExit()
         // TODO: Check task.terminationStatus
+    }
+
+    @objc func searchResultsViewClickHandler(_ sender: AnyObject) {
+        self.searchResultsViewClick()
     }
 }
 
