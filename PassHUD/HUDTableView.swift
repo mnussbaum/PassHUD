@@ -13,4 +13,12 @@ class HUDTableView: NSTableView {
         super.draw(dirtyRect)
         self.focusRingType = .none
     }
+
+    override func reloadData() {
+        super.reloadData()
+        self.selectRowIndexes(
+            IndexSet(integer: 0),
+            byExtendingSelection: false
+        )
+    }
 }

@@ -43,31 +43,38 @@ class HUDViewController: NSViewController  {
     func keyDown(with event: NSEvent) -> NSEvent? {
         if Int(event.keyCode) == kVK_Return {
             self.searchResultsViewClick()
-            
-            return nil
-        } else if Int(event.keyCode) == kVK_DownArrow && self.isFocused(view: self.searchField) {
-            self.view.window?.makeFirstResponder(self.searchResultsTableView)
-            self.searchResultsTableView.selectRowIndexes(
-                IndexSet(integer: 0),
-                byExtendingSelection: false
-            )
 
             return nil
-        } else if Int(event.keyCode) == kVK_UpArrow && self.isFocused(view: self.searchResultsTableView) && self.searchResultsTableView.selectedRow == 0 {
-            
-            self.view.window?.makeFirstResponder(self.searchField)
-            self.searchField.currentEditor()?.moveToEndOfLine(nil)
-            
-            self.searchResultsTableView.deselectAll(nil)
-            
-            return nil
-        } else {
-            return event
+        } else if Int(event.keyCode) == kVK_DownArrow {
+            if !self.isFocused(view: self.searchResultsTableView) {
+                self.view
+                    .window?
+                    .makeFirstResponder(self.searchResultsTableView)
+            }
+        } else if Int(event.keyCode) == kVK_UpArrow {
+            if !self.isFocused(view: self.searchResultsTableView) {
+                self.view
+                    .window?
+                    .makeFirstResponder(self.searchResultsTableView)
+            }
+        } else if !self.isFocused(view: self.searchField) {
+            self.view
+                .window?
+                .makeFirstResponder(self.searchField)
+            if let searchEditor = self.searchField.currentEditor() {
+                searchEditor.moveToEndOfLine(nil)
+            }
         }
+
+        return event
     }
-    
+
     func isFocused(view: NSView) -> Bool {
-        let focusedView = self.view.window?.firstResponder as! NSView
+        guard let focusedView = self.view
+            .window?
+            .firstResponder as? NSView else {
+            return false
+        }
         if focusedView == view {
             return true
         }
@@ -76,21 +83,23 @@ class HUDViewController: NSViewController  {
     }
 }
 
-// TODO: Respond to enter key
-// TODO: Make arrow keys useful for navigation
 // TODO: Show favicons
 // TODO: Show decrypted metadata
 // TODO: Make dissappear when focus is lost
 // TODO: Make dissappear when PW is copied
 // TODO: Log errors
 // TODO: Prompt to load at startup
+// TODO: Exit button
+// TODO: Settings
+// TODO: Populate initial table with `pass ls` or recent searches if available
+// TODO: Move searchField settings into code
+// TODO: Actually override selected/emphasized row color rather then play focus games
 
 extension HUDViewController: NSSearchFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
-        guard let textField = obj.object as? NSTextField else { return }
         CommandOutputStreamer(
             launchPath: "/usr/bin/env",
-            arguments: ["pass", "find", textField.stringValue.lowercased()],
+            arguments: ["pass", "find", self.searchField.stringValue.lowercased()],
             caller: self
         ).launch()
     }
@@ -106,9 +115,14 @@ extension HUDViewController: CommandOutputStreamerDelegate {
             .map({ $0.replacingOccurrences(of: "\\ ", with: " ") })
 
         self.searchResultsTableView.reloadData()
+
+        if !self.isFocused(view: self.searchResultsTableView) {
+            self.view
+                .window?
+                .makeFirstResponder(self.searchResultsTableView)
+        }
     }
 }
-
 
 extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -119,21 +133,21 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
         _ tableView: NSTableView,
         objectValueFor tableColumn: NSTableColumn?,
         row: Int
-    ) -> Any?{
+    ) -> Any? {
         return (self.searchResults?[row])!
     }
-    
+
     func searchResultsViewClick() {
         var selectedRow = self.searchResultsTableView.selectedRow
         if selectedRow < 0 {
             selectedRow = 0
         }
-        
+
         guard let selectedPassword = self.searchResults?[selectedRow] else {
             print("Failed to find selected password in search results")
             return
         }
-        
+
         let task = Process()
         task.launchPath = "/usr/bin/env"
         task.arguments = ["pass", "show", "--clip", selectedPassword]
@@ -159,7 +173,7 @@ extension HUDViewController {
         ).instantiateController(withIdentifier: identifier) as? HUDViewController else {
             fatalError("Failed to instantiate HUDViewController")
         }
-        
+
         return viewController
     }
 }
