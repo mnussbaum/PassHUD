@@ -108,8 +108,6 @@ class HUDViewController: NSViewController  {
 
 // TODO: Show favicons
 // TODO: Show decrypted metadata
-// TODO: Make dissappear when focus is lost
-// TODO: Make dissappear when PW is copied
 // TODO: Log errors
 // TODO: Prompt to load at startup
 // TODO: Exit button
@@ -118,6 +116,8 @@ class HUDViewController: NSViewController  {
 // TODO: Make recent results appear on clearing search field
 // TODO: Move searchField settings into code
 // TODO: Actually override selected/emphasized row color rather then play focus games
+// TODO: Fix partial search result rows
+// TODO: Fix laggyness
 
 extension HUDViewController: NSSearchFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
@@ -185,6 +185,7 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
         task.launch()
         task.waitUntilExit()
         // TODO: Check task.terminationStatus
+        self.view.window?.orderOut(nil)
     }
 
     @objc func searchResultsViewClickHandler(_ sender: AnyObject) {

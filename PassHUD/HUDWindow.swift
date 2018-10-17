@@ -17,5 +17,6 @@ class HUDWindow: NSWindow {
         self.titlebarAppearsTransparent = true
         self.isMovableByWindowBackground = true
         self.backgroundColor = .clear
+        self.hidesOnDeactivate = true
     }
 }
