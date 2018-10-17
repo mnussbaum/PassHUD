@@ -10,11 +10,23 @@ import Cocoa
 import Carbon
 
 class HUDViewController: NSViewController  {
-
     @IBOutlet weak var searchField: NSSearchField!
     @IBOutlet weak var searchResultsTableView: NSTableView!
-    var searchResults: [String]?
+
     let visualEffect = NSVisualEffectView()
+
+    var searchResults: [String]?
+    var recentSearches: Set<String> = []
+
+    func activate() {
+        self.view.window?.center()
+        self.view.window?.makeKeyAndOrderFront(nil)
+        self.searchField.stringValue = ""
+        if !self.recentSearches.isEmpty {
+            self.searchResults = Array(recentSearches)
+            self.searchResultsTableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +50,21 @@ class HUDViewController: NSViewController  {
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
             return self.keyDown(with: $0)
         }
+        
+        // Populate initial table data
+        CommandOutputStreamer(
+            launchPath: "/usr/bin/env",
+            arguments: ["pass", "ls"],
+            caller: self
+        ).launch()
     }
 
     func keyDown(with event: NSEvent) -> NSEvent? {
         if Int(event.keyCode) == kVK_Return {
+            if let selectedPassword = self.selectedPassword() {
+                self.recentSearches.formUnion([selectedPassword])
+            }
+            
             self.searchResultsViewClick()
 
             return nil
@@ -91,7 +114,8 @@ class HUDViewController: NSViewController  {
 // TODO: Prompt to load at startup
 // TODO: Exit button
 // TODO: Settings
-// TODO: Populate initial table with `pass ls` or recent searches if available
+// TODO: Make recent results appear on top of ls
+// TODO: Make recent results appear on clearing search field
 // TODO: Move searchField settings into code
 // TODO: Actually override selected/emphasized row color rather then play focus games
 
@@ -137,13 +161,17 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
         return (self.searchResults?[row])!
     }
 
-    func searchResultsViewClick() {
+    func selectedPassword() -> String? {
         var selectedRow = self.searchResultsTableView.selectedRow
         if selectedRow < 0 {
             selectedRow = 0
         }
+        
+        return self.searchResults?[selectedRow]
+    }
 
-        guard let selectedPassword = self.searchResults?[selectedRow] else {
+    func searchResultsViewClick() {
+        guard let selectedPassword = self.selectedPassword() else {
             print("Failed to find selected password in search results")
             return
         }

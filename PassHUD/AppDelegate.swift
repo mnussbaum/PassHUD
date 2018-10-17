@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         .system
         .statusItem(withLength: NSStatusItem.squareLength)
     let hudWindow = HUDWindow()
+    var hudViewController: HUDViewController?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
@@ -23,7 +24,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         self.hudWindow.setAppearance()
-        self.hudWindow.contentViewController = HUDViewController.create()
+        self.hudViewController = HUDViewController.create()
+        self.hudWindow.contentViewController = self.hudViewController
         
         HotKey.register(UInt32(kVK_ANSI_Slash), modifiers: UInt32(cmdKey), block: {
             self.activateHUD(nil)
@@ -31,10 +33,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func activateHUD(_ sender: Any?) {
-        self.hudWindow.center()
-        self.hudWindow.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
-        
+        self.hudViewController?.activate()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
