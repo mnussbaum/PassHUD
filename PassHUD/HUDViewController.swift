@@ -15,8 +15,10 @@ class HUDViewController: NSViewController  {
 
     let visualEffect = NSVisualEffectView()
 
-    var searchResults: [String]?
+    var searchResults: [String] = []
     var recentSearches: Set<String> = []
+    var lastPassCommandSentIndex = 0
+    var lastPassCommandReceivedIndex = 0
 
     func activate() {
         self.view.window?.center()
@@ -50,13 +52,9 @@ class HUDViewController: NSViewController  {
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
             return self.keyDown(with: $0)
         }
-        
+
         // Populate initial table data
-        CommandOutputStreamer(
-            launchPath: "/usr/bin/env",
-            arguments: ["pass", "ls"],
-            caller: self
-        ).launch()
+        self.runPassCommand(arguments: ["ls"])
     }
 
     func keyDown(with event: NSEvent) -> NSEvent? {
@@ -64,7 +62,7 @@ class HUDViewController: NSViewController  {
             if let selectedPassword = self.selectedPassword() {
                 self.recentSearches.formUnion([selectedPassword])
             }
-            
+
             self.searchResultsViewClick()
 
             return nil
@@ -116,26 +114,32 @@ class HUDViewController: NSViewController  {
 // TODO: Make recent results appear on clearing search field
 // TODO: Move searchField settings into code
 // TODO: Actually override selected/emphasized row color rather then play focus games
-// TODO: Fix partial search result rows
 // TODO: Fix laggyness
 
 extension HUDViewController: NSSearchFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
-        CommandOutputStreamer(
-            launchPath: "/usr/bin/env",
-            arguments: ["pass", "find", self.searchField.stringValue.lowercased()],
-            caller: self
-        ).launch()
+        self.runPassCommand(arguments: [
+            "find", self.searchField.stringValue.lowercased()
+        ])
     }
 }
 
 extension HUDViewController: CommandOutputStreamerDelegate {
-    func handleOutput(_ output: String) {
-        self.searchResults = output
+    func handleOutput(_ output: String, commandIndex: Int) {
+        // This ensures we only display output for the most recently
+        // run command. If we see a newer command then we know about
+        // then clear the existing results.
+        if commandIndex < self.lastPassCommandReceivedIndex {
+            return
+        } else if commandIndex > self.lastPassCommandReceivedIndex {
+            self.lastPassCommandReceivedIndex = commandIndex
+            self.searchResults = []
+        }
+
+        self.searchResults = self.searchResults + output
             .split(separator: "\n")
-            .filter({ !$0.hasPrefix("Search Terms: ") })
+            .filter({ $0.hasPrefix("|-- ") || $0.hasPrefix("`-- ") })
             .map({ String($0.dropFirst(4)) })
-            .filter({ !$0.isEmpty })
             .map({ $0.replacingOccurrences(of: "\\ ", with: " ") })
 
         self.searchResultsTableView.reloadData()
@@ -146,11 +150,22 @@ extension HUDViewController: CommandOutputStreamerDelegate {
                 .makeFirstResponder(self.searchResultsTableView)
         }
     }
+
+    func runPassCommand(arguments: [String]) {
+        // TODO: This method needs an atomic compare and swap
+        CommandOutputStreamer(
+            launchPath: "/usr/bin/env",
+            arguments: ["pass"] + arguments,
+            caller: self,
+            index: self.lastPassCommandSentIndex
+        ).launch()
+        self.lastPassCommandSentIndex = self.lastPassCommandSentIndex + 1
+    }
 }
 
 extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return self.searchResults?.count ?? 0
+        return self.searchResults.count
     }
 
     func tableView(
@@ -158,7 +173,7 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
         objectValueFor tableColumn: NSTableColumn?,
         row: Int
     ) -> Any? {
-        return (self.searchResults?[row])!
+        return (self.searchResults[row])
     }
 
     func selectedPassword() -> String? {
@@ -166,8 +181,8 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
         if selectedRow < 0 {
             selectedRow = 0
         }
-        
-        return self.searchResults?[selectedRow]
+
+        return self.searchResults[selectedRow]
     }
 
     func searchResultsViewClick() {

@@ -9,29 +9,32 @@
 import Cocoa
 
 protocol CommandOutputStreamerDelegate {
-    func handleOutput(_ output: String)
+    func handleOutput(_ output: String, commandIndex: Int)
 }
 
 class CommandOutputStreamer {
     var delegate: CommandOutputStreamerDelegate
     var task: Process
-    
+    var index: Int
+
     init(
         launchPath: String,
         arguments: [String],
-        caller: CommandOutputStreamerDelegate
+        caller: CommandOutputStreamerDelegate,
+        index: Int
     ) {
-        delegate = caller
-        task = Process()
-        task.launchPath = launchPath
-        task.arguments = arguments
+        self.index = index
+        self.delegate = caller
+        self.task = Process()
+        self.task.launchPath = launchPath
+        self.task.arguments = arguments
         var environment = ProcessInfo.processInfo.environment
         // TODO: :(
         environment["PATH"] = "/usr/local/opt/gettext/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/bin:/bin"
-        task.environment = environment
+        self.task.environment = environment
         
         let pipe = Pipe()
-        task.standardOutput = pipe
+        self.task.standardOutput = pipe
         
         let outputHandle = pipe.fileHandleForReading
         outputHandle.waitForDataInBackgroundAndNotify()
@@ -49,7 +52,12 @@ class CommandOutputStreamer {
             }
             
             if let str = String(data: data, encoding: .utf8) {
-                self.delegate.handleOutput(str)
+                self.delegate.handleOutput(
+                    str.substring(
+                        to: str.index(str.endIndex, offsetBy: -1)
+                    ),
+                    commandIndex: self.index
+                )
             }
             
             outputHandle.waitForDataInBackgroundAndNotify()
