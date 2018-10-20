@@ -55,6 +55,10 @@ class HUDViewController: NSViewController  {
 
         // Populate initial table data
         self.runPassCommand(arguments: ["ls"])
+
+        self.view
+            .window?
+            .makeFirstResponder(self.searchResultsTableView)
     }
 
     func keyDown(with event: NSEvent) -> NSEvent? {
@@ -114,7 +118,6 @@ class HUDViewController: NSViewController  {
 // TODO: Make recent results appear on clearing search field
 // TODO: Move searchField settings into code
 // TODO: Actually override selected/emphasized row color rather then play focus games
-// TODO: Fix laggyness
 
 extension HUDViewController: NSSearchFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
@@ -143,12 +146,6 @@ extension HUDViewController: CommandOutputStreamerDelegate {
             .map({ $0.replacingOccurrences(of: "\\ ", with: " ") })
 
         self.searchResultsTableView.reloadData()
-
-        if !self.isFocused(view: self.searchResultsTableView) {
-            self.view
-                .window?
-                .makeFirstResponder(self.searchResultsTableView)
-        }
     }
 
     func runPassCommand(arguments: [String]) {
@@ -170,10 +167,31 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
 
     func tableView(
         _ tableView: NSTableView,
-        objectValueFor tableColumn: NSTableColumn?,
+        viewFor tableColumn: NSTableColumn?,
         row: Int
-    ) -> Any? {
-        return (self.searchResults[row])
+    ) -> NSView? {
+        if let cellView = tableView.makeView(
+            withIdentifier: NSUserInterfaceItemIdentifier(
+                rawValue: "SearchResultCell"
+            ),
+            owner: nil
+        ) as? NSTableCellView {
+            //cell.imageView?.image = favicon
+            cellView.textField?.stringValue = self.searchResults[row]
+
+            // Ensure a blue-highlight instead of a white one.
+            // This is racy, need to override class of of row
+            // views on this table to always return isEmphasized
+            // and avoid the race.
+            tableView.rowView(
+                atRow: row,
+                makeIfNecessary: true
+            )?.isEmphasized = true
+
+            return cellView
+        }
+
+        return nil
     }
 
     func selectedPassword() -> String? {
