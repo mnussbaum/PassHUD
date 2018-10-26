@@ -109,15 +109,6 @@ class HUDViewController: NSViewController  {
     }
 }
 
-// TODO: Show favicons
-// TODO: Show decrypted metadata
-// TODO: Log errors
-// TODO: Prompt to load at startup
-// TODO: Exit button
-// TODO: Settings
-// TODO: Make recent results appear on clearing search field
-// TODO: Actually override selected/emphasized row color rather then play focus games
-
 extension HUDViewController: NSSearchFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
         self.runPassCommand(arguments: [
