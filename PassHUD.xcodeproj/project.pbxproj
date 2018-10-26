@@ -112,7 +112,6 @@
 				72648C81C003987B5E38E245 /* Pods-PassHUDUITests.debug.xcconfig */,
 				2A2DF350857BBBD7BB8CB099 /* Pods-PassHUDUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

@@ -211,7 +211,9 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
         task.launch()
         task.waitUntilExit()
         // TODO: Check task.terminationStatus
+
         self.view.window?.orderOut(nil)
+        NSApp.hide(nil)
     }
 
     @objc func searchResultsViewClickHandler(_ sender: AnyObject) {
