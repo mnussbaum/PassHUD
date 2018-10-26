@@ -16,7 +16,8 @@ class HUDViewController: NSViewController  {
     let visualEffect = NSVisualEffectView()
 
     var searchResults: [String] = []
-    var recentSearches: Set<String> = []
+    var recentlyUsed = LRUCache(capacity: 100)
+
     var lastPassCommandSentIndex = 0
     var lastPassCommandReceivedIndex = 0
 
@@ -24,8 +25,8 @@ class HUDViewController: NSViewController  {
         self.view.window?.center()
         self.view.window?.makeKeyAndOrderFront(nil)
         self.searchField.stringValue = ""
-        if !self.recentSearches.isEmpty {
-            self.searchResults = Array(recentSearches)
+        if !self.recentlyUsed.isEmpty() {
+            self.searchResults = Array(self.recentlyUsed) as! [String]
             self.searchResultsTableView.reloadData()
         }
     }
@@ -63,8 +64,8 @@ class HUDViewController: NSViewController  {
 
     func keyDown(with event: NSEvent) -> NSEvent? {
         if Int(event.keyCode) == kVK_Return {
-            if let selectedPassword = self.selectedPassword() {
-                self.recentSearches.formUnion([selectedPassword])
+            if let selectedSearchResult = self.selectedSearchResult() {
+                self.recentlyUsed.addValue(selectedSearchResult)
             }
 
             self.searchResultsViewClick()
@@ -114,9 +115,7 @@ class HUDViewController: NSViewController  {
 // TODO: Prompt to load at startup
 // TODO: Exit button
 // TODO: Settings
-// TODO: Make recent results appear on top of ls
 // TODO: Make recent results appear on clearing search field
-// TODO: Move searchField settings into code
 // TODO: Actually override selected/emphasized row color rather then play focus games
 
 extension HUDViewController: NSSearchFieldDelegate {
@@ -194,24 +193,27 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
         return nil
     }
 
-    func selectedPassword() -> String? {
+    func selectedSearchResult() -> String? {
         var selectedRow = self.searchResultsTableView.selectedRow
         if selectedRow < 0 {
             selectedRow = 0
+        }
+
+        if self.searchResults.count <= selectedRow {
+            return nil
         }
 
         return self.searchResults[selectedRow]
     }
 
     func searchResultsViewClick() {
-        guard let selectedPassword = self.selectedPassword() else {
-            print("Failed to find selected password in search results")
+        guard let selectedSearchResult = self.selectedSearchResult() else {
             return
         }
 
         let task = Process()
         task.launchPath = "/usr/bin/env"
-        task.arguments = ["pass", "show", "--clip", selectedPassword]
+        task.arguments = ["pass", "show", "--clip", selectedSearchResult]
         var environment = ProcessInfo.processInfo.environment
         environment["PATH"] = "/usr/local/opt/gettext/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/bin:/bin"
         task.environment = environment
