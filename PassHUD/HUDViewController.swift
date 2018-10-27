@@ -18,6 +18,9 @@ class HUDViewController: NSViewController  {
     var searchResults: [String] = []
     var recentlyUsed = LRUCache(capacity: 100)
 
+    let faviconLoader = FaviconLoader()
+
+
     let lastPassCommandSentIndex = Atomic(value: 0)
     let lastPassCommandReceivedIndex = Atomic(value: 0)
 
@@ -178,9 +181,15 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
                 rawValue: "SearchResultCell"
             ),
             owner: nil
-        ) as? NSTableCellView {
-            //cell.imageView?.image = favicon
+        ) as? HUDTableCellView {
             cellView.textField?.stringValue = self.searchResults[row]
+            cellView.imageView?.image = nil
+
+            if let favicon = self.faviconLoader.load(
+                self.searchResults[row]
+            ) {
+                cellView.imageView?.image = favicon
+            }
 
             return cellView
         }

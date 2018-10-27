@@ -9,7 +9,6 @@
 import Cocoa
 
 class HUDTableCellView: NSTableCellView {
-
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
     }
