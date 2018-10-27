@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7B19F82D2183D61C00FD76EF /* HUDTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B19F82B2183D61C00FD76EF /* HUDTableCellView.swift */; };
+		7B19F82F2183EEF200FD76EF /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B19F82E2183EEF200FD76EF /* Atomic.swift */; };
 		7B6BCF902183BDA5001417BC /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6BCF8F2183BDA5001417BC /* LRUCache.swift */; };
 		7B99C434216F21310025D6ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C433216F21310025D6ED /* AppDelegate.swift */; };
 		7B99C43B216F21340025D6ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B99C439216F21340025D6ED /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		7B19F82B2183D61C00FD76EF /* HUDTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDTableCellView.swift; sourceTree = "<group>"; };
+		7B19F82E2183EEF200FD76EF /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
 		7B6BCF8F2183BDA5001417BC /* LRUCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
 		7B99C430216F21310025D6ED /* PassHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B99C433216F21310025D6ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				7B99C462216F23AF0025D6ED /* Assets.xcassets */,
 				7B99C439216F21340025D6ED /* Main.storyboard */,
 				7B99C433216F21310025D6ED /* AppDelegate.swift */,
+				7B19F82E2183EEF200FD76EF /* Atomic.swift */,
 				7B6BCF8F2183BDA5001417BC /* LRUCache.swift */,
 				7B99C47E217157EF0025D6ED /* HotKey.swift */,
 				7B99C47C2171458E0025D6ED /* HUDWindow.swift */,
@@ -288,6 +291,7 @@
 				7B99C47921713C940025D6ED /* HUDSearchField.swift in Sources */,
 				7B99C47B21713E850025D6ED /* HUDTableView.swift in Sources */,
 				7B99C434216F21310025D6ED /* AppDelegate.swift in Sources */,
+				7B19F82F2183EEF200FD76EF /* Atomic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

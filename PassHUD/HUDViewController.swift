@@ -18,17 +18,14 @@ class HUDViewController: NSViewController  {
     var searchResults: [String] = []
     var recentlyUsed = LRUCache(capacity: 100)
 
-    var lastPassCommandSentIndex = 0
-    var lastPassCommandReceivedIndex = 0
+    let lastPassCommandSentIndex = Atomic(value: 0)
+    let lastPassCommandReceivedIndex = Atomic(value: 0)
 
     func activate() {
         self.view.window?.center()
         self.view.window?.makeKeyAndOrderFront(nil)
         self.searchField.stringValue = ""
-        if !self.recentlyUsed.isEmpty() {
-            self.searchResults = Array(self.recentlyUsed) as! [String]
-            self.searchResultsTableView.reloadData()
-        }
+        self.controlTextDidChange(Notification(name: Notification.Name(rawValue: "Activate")))
     }
 
     override func viewDidLoad() {
@@ -50,12 +47,10 @@ class HUDViewController: NSViewController  {
         self.searchResultsTableView.target = self
         self.searchResultsTableView.action = #selector(searchResultsViewClickHandler(_:))
 
+
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
             return self.keyDown(with: $0)
         }
-
-        // Populate initial table data
-        self.runPassCommand(arguments: ["ls"])
 
         self.view
             .window?
@@ -111,42 +106,58 @@ class HUDViewController: NSViewController  {
 
 extension HUDViewController: NSSearchFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
-        self.runPassCommand(arguments: [
-            "find", self.searchField.stringValue.lowercased()
-        ])
+        if self.searchField.stringValue == "" {
+            self.runPassCommand(arguments: ["ls"])
+        } else {
+            self.runPassCommand(arguments: [
+                "find", self.searchField.stringValue.lowercased()
+            ])
+        }
     }
 }
 
 extension HUDViewController: CommandOutputStreamerDelegate {
-    func handleOutput(_ output: String, commandIndex: Int) {
+    func handleOutput(
+        _ output: String,
+        arguments: [String]?,
+        commandIndex: Int
+    ) {
         // This ensures we only display output for the most recently
         // run command. If we see a newer command then we know about
         // then clear the existing results.
-        if commandIndex < self.lastPassCommandReceivedIndex {
-            return
-        } else if commandIndex > self.lastPassCommandReceivedIndex {
-            self.lastPassCommandReceivedIndex = commandIndex
-            self.searchResults = []
+
+        self.lastPassCommandReceivedIndex.set{ (current) -> (Int) in
+            if commandIndex < current {
+                return current
+            } else if let arguments = arguments, arguments.contains("ls"), commandIndex > current {
+                // Populate recently used above the normal full list shown on empty search
+                self.searchResults = Array(self.recentlyUsed) as! [String]
+            } else if commandIndex > current {
+                self.searchResults = []
+            }
+
+            self.searchResults = self.searchResults + output
+                .split(separator: "\n")
+                .filter({ $0.hasPrefix("|-- ") || $0.hasPrefix("`-- ") })
+                .map({ String($0.dropFirst(4)) })
+                .map({ $0.replacingOccurrences(of: "\\ ", with: " ") })
+
+
+            self.searchResultsTableView.reloadData()
+            return commandIndex
         }
-
-        self.searchResults = self.searchResults + output
-            .split(separator: "\n")
-            .filter({ $0.hasPrefix("|-- ") || $0.hasPrefix("`-- ") })
-            .map({ String($0.dropFirst(4)) })
-            .map({ $0.replacingOccurrences(of: "\\ ", with: " ") })
-
-        self.searchResultsTableView.reloadData()
     }
 
     func runPassCommand(arguments: [String]) {
-        // TODO: This method needs an atomic compare and swap
-        CommandOutputStreamer(
-            launchPath: "/usr/bin/env",
-            arguments: ["pass"] + arguments,
-            caller: self,
-            index: self.lastPassCommandSentIndex
-        ).launch()
-        self.lastPassCommandSentIndex = self.lastPassCommandSentIndex + 1
+        self.lastPassCommandSentIndex.set{ (current) -> (Int) in
+            CommandOutputStreamer(
+                launchPath: "/usr/bin/env",
+                arguments: ["pass"] + arguments,
+                caller: self,
+                index: current
+            ).launch()
+            return current + 1
+        }
     }
 }
 

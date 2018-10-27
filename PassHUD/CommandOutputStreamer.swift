@@ -9,7 +9,7 @@
 import Cocoa
 
 protocol CommandOutputStreamerDelegate {
-    func handleOutput(_ output: String, commandIndex: Int)
+    func handleOutput(_ output: String, arguments: [String]?, commandIndex: Int)
 }
 
 class CommandOutputStreamer {
@@ -32,13 +32,13 @@ class CommandOutputStreamer {
         // TODO: :(
         environment["PATH"] = "/usr/local/opt/gettext/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/bin:/bin"
         self.task.environment = environment
-        
+
         let pipe = Pipe()
         self.task.standardOutput = pipe
-        
+
         let outputHandle = pipe.fileHandleForReading
         outputHandle.waitForDataInBackgroundAndNotify()
-        
+
         // TODO: make queue non-nil so this runs in the background
         var dataAvailable : NSObjectProtocol!
         dataAvailable = NotificationCenter.default.addObserver(
@@ -50,20 +50,21 @@ class CommandOutputStreamer {
                 NotificationCenter.default.removeObserver(dataAvailable)
                 return
             }
-            
+
             if let str = String(data: data, encoding: .utf8) {
                 self.delegate.handleOutput(
                     str.substring(
                         to: str.index(str.endIndex, offsetBy: -1)
                     ),
+                    arguments: self.task.arguments,
                     commandIndex: self.index
                 )
             }
-            
+
             outputHandle.waitForDataInBackgroundAndNotify()
         }
     }
-    
+
     func launch() {
         return task.launch()
     }

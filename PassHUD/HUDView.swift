@@ -13,6 +13,6 @@ class HUDView: NSView {
         super.draw(dirtyRect)
         self.appearance = NSAppearance(named: .vibrantDark)
     }
-    
+
     override var allowsVibrancy: Bool { return true }
 }

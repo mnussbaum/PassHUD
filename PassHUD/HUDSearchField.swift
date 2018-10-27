@@ -12,5 +12,5 @@ class HUDSearchField: NSSearchField {
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         self.focusRingType = .none
-    }    
+    }
 }

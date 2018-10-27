@@ -11,7 +11,7 @@ import Carbon
 
 class HotKey {
     init() {}
-    
+
     static func register(
         _ keyCode: UInt32,
         modifiers: UInt32,
@@ -24,10 +24,10 @@ class HotKey {
             eventClass: OSType(kEventClassKeyboard),
             eventKind: UInt32(kEventHotKeyPressed)
         )
-        
+
         let ptr = UnsafeMutablePointer<() -> ()>.allocate(capacity: 1)
         ptr.initialize(to: block)
-        
+
         if InstallEventHandler(
             GetApplicationEventTarget(),
             { (_: EventHandlerCallRef?, _: EventRef?, ptr: UnsafeMutableRawPointer?) -> OSStatus in
