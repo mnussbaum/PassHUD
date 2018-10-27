@@ -169,15 +169,6 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
             //cell.imageView?.image = favicon
             cellView.textField?.stringValue = self.searchResults[row]
 
-            // Ensure a blue-highlight instead of a white one.
-            // This is racy, need to override class of of row
-            // views on this table to always return isEmphasized
-            // and avoid the race.
-            tableView.rowView(
-                atRow: row,
-                makeIfNecessary: true
-            )?.isEmphasized = true
-
             return cellView
         }
 

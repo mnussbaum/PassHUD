@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B19F82D2183D61C00FD76EF /* HUDTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B19F82B2183D61C00FD76EF /* HUDTableCellView.swift */; };
 		7B6BCF902183BDA5001417BC /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6BCF8F2183BDA5001417BC /* LRUCache.swift */; };
 		7B99C434216F21310025D6ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C433216F21310025D6ED /* AppDelegate.swift */; };
 		7B99C43B216F21340025D6ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B99C439216F21340025D6ED /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B19F82B2183D61C00FD76EF /* HUDTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDTableCellView.swift; sourceTree = "<group>"; };
 		7B6BCF8F2183BDA5001417BC /* LRUCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
 		7B99C430216F21310025D6ED /* PassHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B99C433216F21310025D6ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				7B99C46E216F2EEA0025D6ED /* HUDViewController.swift */,
 				7B99C47221712A8D0025D6ED /* HUDView.swift */,
 				7B99C47A21713E850025D6ED /* HUDTableView.swift */,
+				7B19F82B2183D61C00FD76EF /* HUDTableCellView.swift */,
 				7B99C47821713C940025D6ED /* HUDSearchField.swift */,
 				7B99C470216F3C0A0025D6ED /* CommandOutputStreamer.swift */,
 				7B99C43C216F21340025D6ED /* Info.plist */,
@@ -280,6 +283,7 @@
 				7B99C46F216F2EEA0025D6ED /* HUDViewController.swift in Sources */,
 				7B6BCF902183BDA5001417BC /* LRUCache.swift in Sources */,
 				7B99C47F217157EF0025D6ED /* HotKey.swift in Sources */,
+				7B19F82D2183D61C00FD76EF /* HUDTableCellView.swift in Sources */,
 				7B99C47D2171458E0025D6ED /* HUDWindow.swift in Sources */,
 				7B99C47921713C940025D6ED /* HUDSearchField.swift in Sources */,
 				7B99C47B21713E850025D6ED /* HUDTableView.swift in Sources */,
