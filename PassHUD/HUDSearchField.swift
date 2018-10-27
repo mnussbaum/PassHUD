@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class HUDSearchField: NSSearchField {
+class HUDSearchField: NSTextField {
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         self.focusRingType = .none

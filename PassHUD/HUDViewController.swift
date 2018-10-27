@@ -10,7 +10,7 @@ import Cocoa
 import Carbon
 
 class HUDViewController: NSViewController  {
-    @IBOutlet weak var searchField: NSSearchField!
+    @IBOutlet weak var searchField: NSTextField!
     @IBOutlet weak var searchResultsTableView: NSTableView!
 
     let visualEffect = NSVisualEffectView()
@@ -104,8 +104,8 @@ class HUDViewController: NSViewController  {
     }
 }
 
-extension HUDViewController: NSSearchFieldDelegate {
-    func controlTextDidChange(_ obj: Notification) {
+extension HUDViewController: NSTextFieldDelegate {
+    func  controlTextDidChange(_ obj: Notification) {
         if self.searchField.stringValue == "" {
             self.runPassCommand(arguments: ["ls"])
         } else {
