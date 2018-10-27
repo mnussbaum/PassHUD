@@ -1,0 +1,16 @@
+PODS:
+  - FavIcon (3.0.4)
+
+DEPENDENCIES:
+  - FavIcon (~> 3.0.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FavIcon
+
+SPEC CHECKSUMS:
+  FavIcon: 4eb40c6827e1a040b979d320b6c583409dbd9aba
+
+PODFILE CHECKSUM: ef261fce3d55417421230608567930759b6e3ab1
+
+COCOAPODS: 1.6.0.beta.2

@@ -690,7 +690,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zsl-7q-khg" customClass="HUDSearchField" customModule="PassHUD" customModuleProvider="target">
-                                <rect key="frame" x="7" y="198" width="555" height="38"/>
+                                <rect key="frame" x="7" y="198" width="555" height="36"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" drawsBackground="YES" id="MAt-EA-3CP">
                                     <font key="font" metaFont="system" size="30"/>

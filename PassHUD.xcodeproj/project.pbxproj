@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		261232F69ACBD7470CE29D37 /* Pods_PassHUDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E1E199BF8713EDCA1137E06 /* Pods_PassHUDTests.framework */; };
+		5144469EC57AAE35A6C79907 /* Pods_PassHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D18C8F2EAA9FFA73CF038D /* Pods_PassHUD.framework */; };
 		7B19F82D2183D61C00FD76EF /* HUDTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B19F82B2183D61C00FD76EF /* HUDTableCellView.swift */; };
 		7B19F82F2183EEF200FD76EF /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B19F82E2183EEF200FD76EF /* Atomic.swift */; };
 		7B6BCF902183BDA5001417BC /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6BCF8F2183BDA5001417BC /* LRUCache.swift */; };
@@ -22,6 +24,7 @@
 		7B99C47B21713E850025D6ED /* HUDTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C47A21713E850025D6ED /* HUDTableView.swift */; };
 		7B99C47D2171458E0025D6ED /* HUDWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C47C2171458E0025D6ED /* HUDWindow.swift */; };
 		7B99C47F217157EF0025D6ED /* HotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C47E217157EF0025D6ED /* HotKey.swift */; };
+		F73B65060D45D677F470EDAD /* Pods_PassHUDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF846C2B43A2C1046D308970 /* Pods_PassHUDUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		138DD94816EBCD346CF19096 /* Pods-PassHUDUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassHUDUITests.debug.xcconfig"; path = "Target Support Files/Pods-PassHUDUITests/Pods-PassHUDUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5A7ACCAE4965B1578F21692B /* Pods-PassHUDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassHUDTests.debug.xcconfig"; path = "Target Support Files/Pods-PassHUDTests/Pods-PassHUDTests.debug.xcconfig"; sourceTree = "<group>"; };
+		64D18C8F2EAA9FFA73CF038D /* Pods_PassHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PassHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B19F82B2183D61C00FD76EF /* HUDTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDTableCellView.swift; sourceTree = "<group>"; };
 		7B19F82E2183EEF200FD76EF /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
 		7B6BCF8F2183BDA5001417BC /* LRUCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
@@ -64,6 +70,12 @@
 		7B99C47A21713E850025D6ED /* HUDTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDTableView.swift; sourceTree = "<group>"; };
 		7B99C47C2171458E0025D6ED /* HUDWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDWindow.swift; sourceTree = "<group>"; };
 		7B99C47E217157EF0025D6ED /* HotKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKey.swift; sourceTree = "<group>"; };
+		8E1E199BF8713EDCA1137E06 /* Pods_PassHUDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PassHUDTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		920A19CAA5878C47ACF8CA6C /* Pods-PassHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassHUD.release.xcconfig"; path = "Target Support Files/Pods-PassHUD/Pods-PassHUD.release.xcconfig"; sourceTree = "<group>"; };
+		CAB86DB1A08CCC44311820D5 /* Pods-PassHUDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassHUDTests.release.xcconfig"; path = "Target Support Files/Pods-PassHUDTests/Pods-PassHUDTests.release.xcconfig"; sourceTree = "<group>"; };
+		CF846C2B43A2C1046D308970 /* Pods_PassHUDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PassHUDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E24F0947A3789EDAA40E28FF /* Pods-PassHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassHUD.debug.xcconfig"; path = "Target Support Files/Pods-PassHUD/Pods-PassHUD.debug.xcconfig"; sourceTree = "<group>"; };
+		F9F07678EC0F3E4705510D66 /* Pods-PassHUDUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassHUDUITests.release.xcconfig"; path = "Target Support Files/Pods-PassHUDUITests/Pods-PassHUDUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5144469EC57AAE35A6C79907 /* Pods_PassHUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261232F69ACBD7470CE29D37 /* Pods_PassHUDTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,12 +99,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F73B65060D45D677F470EDAD /* Pods_PassHUDUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12F2FF442D26FB3E53DEE5E2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E24F0947A3789EDAA40E28FF /* Pods-PassHUD.debug.xcconfig */,
+				920A19CAA5878C47ACF8CA6C /* Pods-PassHUD.release.xcconfig */,
+				5A7ACCAE4965B1578F21692B /* Pods-PassHUDTests.debug.xcconfig */,
+				CAB86DB1A08CCC44311820D5 /* Pods-PassHUDTests.release.xcconfig */,
+				138DD94816EBCD346CF19096 /* Pods-PassHUDUITests.debug.xcconfig */,
+				F9F07678EC0F3E4705510D66 /* Pods-PassHUDUITests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7B99C427216F21310025D6ED = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +127,8 @@
 				7B99C445216F21340025D6ED /* PassHUDTests */,
 				7B99C450216F21340025D6ED /* PassHUDUITests */,
 				7B99C431216F21310025D6ED /* Products */,
+				12F2FF442D26FB3E53DEE5E2 /* Pods */,
+				EAFE4B691C318657ECD4592A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +182,16 @@
 			path = PassHUDUITests;
 			sourceTree = "<group>";
 		};
+		EAFE4B691C318657ECD4592A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				64D18C8F2EAA9FFA73CF038D /* Pods_PassHUD.framework */,
+				8E1E199BF8713EDCA1137E06 /* Pods_PassHUDTests.framework */,
+				CF846C2B43A2C1046D308970 /* Pods_PassHUDUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B99C456216F21340025D6ED /* Build configuration list for PBXNativeTarget "PassHUD" */;
 			buildPhases = (
+				7714B214C665655383B3B97D /* [CP] Check Pods Manifest.lock */,
 				7B99C42C216F21310025D6ED /* Sources */,
 				7B99C42D216F21310025D6ED /* Frameworks */,
 				7B99C42E216F21310025D6ED /* Resources */,
+				D16313D55448D4E7F0D5ADBD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -175,6 +218,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B99C459216F21340025D6ED /* Build configuration list for PBXNativeTarget "PassHUDTests" */;
 			buildPhases = (
+				C88DB52783125216C7C8EDA2 /* [CP] Check Pods Manifest.lock */,
 				7B99C43E216F21340025D6ED /* Sources */,
 				7B99C43F216F21340025D6ED /* Frameworks */,
 				7B99C440216F21340025D6ED /* Resources */,
@@ -193,6 +237,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B99C45C216F21340025D6ED /* Build configuration list for PBXNativeTarget "PassHUDUITests" */;
 			buildPhases = (
+				0B4A0650195F9E81A1357014 /* [CP] Check Pods Manifest.lock */,
 				7B99C449216F21340025D6ED /* Sources */,
 				7B99C44A216F21340025D6ED /* Frameworks */,
 				7B99C44B216F21340025D6ED /* Resources */,
@@ -275,6 +320,97 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B4A0650195F9E81A1357014 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PassHUDUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7714B214C665655383B3B97D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PassHUD-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C88DB52783125216C7C8EDA2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PassHUDTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D16313D55448D4E7F0D5ADBD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PassHUD/Pods-PassHUD-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FavIcon/FavIcon.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FavIcon.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PassHUD/Pods-PassHUD-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7B99C42C216F21310025D6ED /* Sources */ = {
@@ -455,6 +591,7 @@
 		};
 		7B99C457216F21340025D6ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E24F0947A3789EDAA40E28FF /* Pods-PassHUD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PassHUD/PassHUD.entitlements;
@@ -473,6 +610,7 @@
 		};
 		7B99C458216F21340025D6ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 920A19CAA5878C47ACF8CA6C /* Pods-PassHUD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PassHUD/PassHUD.entitlements;
@@ -491,6 +629,7 @@
 		};
 		7B99C45A216F21340025D6ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A7ACCAE4965B1578F21692B /* Pods-PassHUDTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -511,6 +650,7 @@
 		};
 		7B99C45B216F21340025D6ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAB86DB1A08CCC44311820D5 /* Pods-PassHUDTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -531,6 +671,7 @@
 		};
 		7B99C45D216F21340025D6ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 138DD94816EBCD346CF19096 /* Pods-PassHUDUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -550,6 +691,7 @@
 		};
 		7B99C45E216F21340025D6ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9F07678EC0F3E4705510D66 /* Pods-PassHUDUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
