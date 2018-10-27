@@ -25,6 +25,7 @@ class HUDViewController: NSViewController  {
         self.view.window?.center()
         self.view.window?.makeKeyAndOrderFront(nil)
         self.searchField.stringValue = ""
+
         self.controlTextDidChange(Notification(name: Notification.Name(rawValue: "Activate")))
     }
 
@@ -139,11 +140,10 @@ extension HUDViewController: CommandOutputStreamerDelegate {
             let searchResultSet = Set(self.searchResults)
             self.searchResults = self.searchResults + output
                 .split(separator: "\n")
-                .filter({ $0.hasPrefix("|-- ") || $0.hasPrefix("`-- ") })
+                .filter({ $0.hasPrefix("├── ") || $0.hasPrefix("└── ") })
                 .map({ String($0.dropFirst(4)) })
                 .map({ $0.replacingOccurrences(of: "\\ ", with: " ") })
                 .filter({ !searchResultSet.contains($0) })
-
 
             self.searchResultsTableView.reloadData()
             return commandIndex
