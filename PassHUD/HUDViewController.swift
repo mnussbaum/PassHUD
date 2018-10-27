@@ -136,11 +136,13 @@ extension HUDViewController: CommandOutputStreamerDelegate {
                 self.searchResults = []
             }
 
+            let searchResultSet = Set(self.searchResults)
             self.searchResults = self.searchResults + output
                 .split(separator: "\n")
                 .filter({ $0.hasPrefix("|-- ") || $0.hasPrefix("`-- ") })
                 .map({ String($0.dropFirst(4)) })
                 .map({ $0.replacingOccurrences(of: "\\ ", with: " ") })
+                .filter({ !searchResultSet.contains($0) })
 
 
             self.searchResultsTableView.reloadData()
