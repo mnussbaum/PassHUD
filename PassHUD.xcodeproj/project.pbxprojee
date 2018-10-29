@@ -39,15 +39,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7B99C430216F21310025D6ED /* PassHud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassHud.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B99C430216F21310025D6ED /* PassHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B99C433216F21310025D6ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B99C43A216F21340025D6ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7B99C43C216F21340025D6ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B99C43D216F21340025D6ED /* PassHUD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PassHUD.entitlements; sourceTree = "<group>"; };
-		7B99C442216F21340025D6ED /* PassHudTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PassHudTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B99C442216F21340025D6ED /* PassHUDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PassHUDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B99C446216F21340025D6ED /* PassHUDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassHUDTests.swift; sourceTree = "<group>"; };
 		7B99C448216F21340025D6ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7B99C44D216F21340025D6ED /* PassHudUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PassHudUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B99C44D216F21340025D6ED /* PassHUDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PassHUDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B99C451216F21340025D6ED /* PaddHUDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddHUDUITests.swift; sourceTree = "<group>"; };
 		7B99C453216F21340025D6ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B99C462216F23AF0025D6ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,9 +98,9 @@
 		7B99C431216F21310025D6ED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7B99C430216F21310025D6ED /* PassHud.app */,
-				7B99C442216F21340025D6ED /* PassHudTests.xctest */,
-				7B99C44D216F21340025D6ED /* PassHudUITests.xctest */,
+				7B99C430216F21310025D6ED /* PassHUD.app */,
+				7B99C442216F21340025D6ED /* PassHUDTests.xctest */,
+				7B99C44D216F21340025D6ED /* PassHUDUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,9 +145,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7B99C42F216F21310025D6ED /* PassHud */ = {
+		7B99C42F216F21310025D6ED /* PassHUD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7B99C456216F21340025D6ED /* Build configuration list for PBXNativeTarget "PassHud" */;
+			buildConfigurationList = 7B99C456216F21340025D6ED /* Build configuration list for PBXNativeTarget "PassHUD" */;
 			buildPhases = (
 				7B99C42C216F21310025D6ED /* Sources */,
 				7B99C42D216F21310025D6ED /* Frameworks */,
@@ -157,14 +157,14 @@
 			);
 			dependencies = (
 			);
-			name = PassHud;
+			name = PassHUD;
 			productName = PassHUD;
-			productReference = 7B99C430216F21310025D6ED /* PassHud.app */;
+			productReference = 7B99C430216F21310025D6ED /* PassHUD.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7B99C441216F21340025D6ED /* PassHudTests */ = {
+		7B99C441216F21340025D6ED /* PassHUDTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7B99C459216F21340025D6ED /* Build configuration list for PBXNativeTarget "PassHudTests" */;
+			buildConfigurationList = 7B99C459216F21340025D6ED /* Build configuration list for PBXNativeTarget "PassHUDTests" */;
 			buildPhases = (
 				7B99C43E216F21340025D6ED /* Sources */,
 				7B99C43F216F21340025D6ED /* Frameworks */,
@@ -175,14 +175,14 @@
 			dependencies = (
 				7B99C444216F21340025D6ED /* PBXTargetDependency */,
 			);
-			name = PassHudTests;
+			name = PassHUDTests;
 			productName = PassHUDTests;
-			productReference = 7B99C442216F21340025D6ED /* PassHudTests.xctest */;
+			productReference = 7B99C442216F21340025D6ED /* PassHUDTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		7B99C44C216F21340025D6ED /* PassHudUITests */ = {
+		7B99C44C216F21340025D6ED /* PassHUDUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7B99C45C216F21340025D6ED /* Build configuration list for PBXNativeTarget "PassHudUITests" */;
+			buildConfigurationList = 7B99C45C216F21340025D6ED /* Build configuration list for PBXNativeTarget "PassHUDUITests" */;
 			buildPhases = (
 				7B99C449216F21340025D6ED /* Sources */,
 				7B99C44A216F21340025D6ED /* Frameworks */,
@@ -193,9 +193,9 @@
 			dependencies = (
 				7B99C44F216F21340025D6ED /* PBXTargetDependency */,
 			);
-			name = PassHudUITests;
+			name = PassHUDUITests;
 			productName = PassHUDUITests;
-			productReference = 7B99C44D216F21340025D6ED /* PassHudUITests.xctest */;
+			productReference = 7B99C44D216F21340025D6ED /* PassHUDUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -234,9 +234,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7B99C42F216F21310025D6ED /* PassHud */,
-				7B99C441216F21340025D6ED /* PassHudTests */,
-				7B99C44C216F21340025D6ED /* PassHudUITests */,
+				7B99C42F216F21310025D6ED /* PassHUD */,
+				7B99C441216F21340025D6ED /* PassHUDTests */,
+				7B99C44C216F21340025D6ED /* PassHUDUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -304,12 +304,12 @@
 /* Begin PBXTargetDependency section */
 		7B99C444216F21340025D6ED /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7B99C42F216F21310025D6ED /* PassHud */;
+			target = 7B99C42F216F21310025D6ED /* PassHUD */;
 			targetProxy = 7B99C443216F21340025D6ED /* PBXContainerItemProxy */;
 		};
 		7B99C44F216F21340025D6ED /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7B99C42F216F21310025D6ED /* PassHud */;
+			target = 7B99C42F216F21310025D6ED /* PassHUD */;
 			targetProxy = 7B99C44E216F21340025D6ED /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -453,7 +453,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mnussbaum.PassHud;
+				PRODUCT_BUNDLE_IDENTIFIER = mnussbaum.PassHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
@@ -471,7 +471,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mnussbaum.PassHud;
+				PRODUCT_BUNDLE_IDENTIFIER = mnussbaum.PassHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
@@ -567,7 +567,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7B99C456216F21340025D6ED /* Build configuration list for PBXNativeTarget "PassHud" */ = {
+		7B99C456216F21340025D6ED /* Build configuration list for PBXNativeTarget "PassHUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7B99C457216F21340025D6ED /* Debug */,
@@ -576,7 +576,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7B99C459216F21340025D6ED /* Build configuration list for PBXNativeTarget "PassHudTests" */ = {
+		7B99C459216F21340025D6ED /* Build configuration list for PBXNativeTarget "PassHUDTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7B99C45A216F21340025D6ED /* Debug */,
@@ -585,7 +585,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7B99C45C216F21340025D6ED /* Build configuration list for PBXNativeTarget "PassHudUITests" */ = {
+		7B99C45C216F21340025D6ED /* Build configuration list for PBXNativeTarget "PassHUDUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7B99C45D216F21340025D6ED /* Debug */,

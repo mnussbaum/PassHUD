@@ -675,7 +675,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="PassHud" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="PassHUD" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -685,11 +685,11 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController storyboardIdentifier="HUDViewController" id="XfG-lQ-9wD" customClass="HUDViewController" customModule="PassHUD" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="HUDView" customModule="PassHud" customModuleProvider="target">
+                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="HUDView" customModule="PassHUD" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="203"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRE-eY-pJd" customClass="HUDSearchField" customModule="PassHud" customModuleProvider="target">
+                            <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRE-eY-pJd" customClass="HUDSearchField" customModule="PassHUD" customModuleProvider="target">
                                 <rect key="frame" x="20" y="161" width="440" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" allowsEditingTextAttributes="YES" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="4Ia-mm-aDM">
@@ -705,7 +705,7 @@
                                     <rect key="frame" x="1" y="1" width="438" height="133"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" id="8Xl-IF-RSP" customClass="HUDTableView" customModule="PassHud" customModuleProvider="target">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" id="8Xl-IF-RSP" customClass="HUDTableView" customModule="PassHUD" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="438" height="133"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
