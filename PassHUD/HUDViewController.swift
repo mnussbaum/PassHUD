@@ -143,7 +143,10 @@ extension HUDViewController: CommandOutputStreamerDelegate {
             let searchResultSet = Set(self.searchResults)
             self.searchResults = self.searchResults + output
                 .split(separator: "\n")
-                .filter({ $0.hasPrefix("├── ") || $0.hasPrefix("└── ") })
+                .filter({
+                    $0.hasPrefix("├── ") || $0.hasPrefix("└── ") ||
+                    $0.hasPrefix("|-- ") || $0.hasPrefix("`-- ")
+                })
                 .map({ String($0.dropFirst(4)) })
                 .map({ $0.replacingOccurrences(of: "\\ ", with: " ") })
                 .filter({ !searchResultSet.contains($0) })
@@ -182,14 +185,19 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
             ),
             owner: nil
         ) as? HUDTableCellView {
-            cellView.textField?.stringValue = self.searchResults[row]
+            let rowResult = self.searchResults[row]
+            cellView.textField?.stringValue = rowResult
             cellView.imageView?.image = nil
 
-            if let favicon = self.faviconLoader.load(
-                self.searchResults[row]
-            ) {
-                cellView.imageView?.image = favicon
-            }
+            self.faviconLoader.load(
+                self.searchResults[row],
+                callback: { (maybeFavicon) in
+                    // This is still race-prone
+                    if let favicon = maybeFavicon, rowResult == cellView.textField?.stringValue {
+                        cellView.imageView?.image = favicon
+                    }
+                }
+            )
 
             return cellView
         }

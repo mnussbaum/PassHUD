@@ -1,16 +1,20 @@
 PODS:
   - FavIcon (3.0.4)
+  - SPTPersistentCache (1.1.0)
 
 DEPENDENCIES:
   - FavIcon (~> 3.0.4)
+  - SPTPersistentCache (~> 1.1.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - FavIcon
+    - SPTPersistentCache
 
 SPEC CHECKSUMS:
   FavIcon: 4eb40c6827e1a040b979d320b6c583409dbd9aba
+  SPTPersistentCache: df36ea46762d7cf026502bbb86a8b79d0080dff4
 
-PODFILE CHECKSUM: 420b8d9e039dabea095864b05724175395a8adb4
+PODFILE CHECKSUM: 4e6c130709ec482af0a7018da38f5937baa24170
 
 COCOAPODS: 1.6.0.beta.2

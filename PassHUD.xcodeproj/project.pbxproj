@@ -400,12 +400,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PassHUD/Pods-PassHUD-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FavIcon/FavIcon.framework",
+				"${BUILT_PRODUCTS_DIR}/SPTPersistentCache/SPTPersistentCache.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FavIcon.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPTPersistentCache.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

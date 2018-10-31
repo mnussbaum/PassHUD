@@ -6,16 +6,24 @@
 //  Copyright © 2018 mnussbaum. All rights reserved.
 //
 
+import os
+
 import FavIcon
+import SPTPersistentCache
 
 class FaviconLoader {
-    let fileManager = FileManager.default
-    let systemCachePath = FileManager.default.urls(
-        for: .cachesDirectory,
-        in: .userDomainMask
+    var cache: SPTPersistentCache
+
+    let systemCachePath = NSSearchPathForDirectoriesInDomains(
+        .cachesDirectory,
+        .userDomainMask,
+        true
     ).first!
     let cacheIdentifier = "com.passhud.favicon.cache"
-    var cachePath: URL
+    var cachePath: String
+    let cacheQueue = DispatchQueue(label: "com.passhud.favicon.cache")
+    let cacheOptions = SPTPersistentCacheOptions()
+    let thirtyDays = 60 * 60 * 24 * 30
 
     let domainPredicate = NSPredicate(
         format:"SELF MATCHES %@",
@@ -25,57 +33,54 @@ class FaviconLoader {
     )
 
     init() {
-        self.cachePath = self.systemCachePath.appendingPathComponent(
-            self.cacheIdentifier,
-            isDirectory: true
+        self.cachePath = self.systemCachePath.appending(
+            self.cacheIdentifier
         )
+
+        self.cacheOptions.cachePath = self.cachePath;
+        self.cacheOptions.cacheIdentifier = self.cacheIdentifier
+        self.cacheOptions.defaultExpirationPeriod = UInt(self.thirtyDays)
+        self.cacheOptions.garbageCollectionInterval = UInt(60 * 60) * SPTPersistentCacheDefaultGCIntervalSec
+        self.cacheOptions.sizeConstraintBytes = 1024 * 1024 * 200; // 200 MiB
+
+        self.cache = SPTPersistentCache(options: self.cacheOptions)
+        self.cache.scheduleGarbageCollector()
     }
 
     func isDomain(candidate: String) -> Bool {
         return self.domainPredicate.evaluate(with: candidate)
     }
 
-    func domainCachePath(_ domain: String) -> String {
-        return self.cachePath
-            .appendingPathComponent(domain)
-            .absoluteString
-    }
+    func load(
+        _ domain: String?,
+        callback: @escaping (NSImage?)  -> Void
+    ) {
+        guard let domain = domain else { return }
+        if !isDomain(candidate: domain) { return }
 
-    func load(_ domain: String?) -> NSImage? {
-        guard let domain = domain else { return nil }
-        if !isDomain(candidate: domain) { return nil }
-
-        guard let faviconCachePath = URL.init(
-            string: self.domainCachePath(domain)
-            ) else { return nil }
-
-        do {
-            let faviconData = try NSData(contentsOf: faviconCachePath, options: NSData.ReadingOptions())
-            return NSImage(data: faviconData as Data)
-        } catch {
-            downloadFavicon(domain, attempt: 0)
-            return nil
-        }
-    }
-
-    func createCacheDirIfNecessary() {
-        var isDirectory = ObjCBool(true)
-        if self.fileManager.fileExists(
-            atPath: self.cachePath.absoluteString,
-            isDirectory: &isDirectory
-        ) {
-            return
-        }
-
-       try! self.fileManager.createDirectory(
-            at: self.cachePath,
-            withIntermediateDirectories: true
+        self.cache.loadData(
+            forKey: domain,
+            withCallback: { (cacheResponse) in
+                if cacheResponse.result == .operationSucceeded{
+                    callback(NSImage(data: cacheResponse.record.data))
+                } else {
+                    self.downloadFavicon(
+                        domain,
+                        attempt: 0,
+                        callback: callback
+                    )
+                }
+            },
+            on: DispatchQueue.main
         )
+
+        return
     }
 
     func downloadFavicon(
         _ domain: String,
-        attempt: Int
+        attempt: Int,
+        callback: @escaping (NSImage?)  -> Void
     ) {
         var scheme = "https"
         if attempt == 1 {
@@ -84,22 +89,37 @@ class FaviconLoader {
             return
         }
 
-        self.createCacheDirIfNecessary()
         try! FavIcon.downloadPreferred(scheme + "://" + domain) { result in
-            if case .failure = result {
-                self.downloadFavicon(domain, attempt: attempt + 1)
+            guard case let .success(image) = result else {
+                self.downloadFavicon(
+                    domain,
+                    attempt: attempt + 1,
+                    callback: callback
+                )
+                return
             }
 
-            guard let faviconCachePath = URL.init(
-                string: self.domainCachePath(domain)
-            ) else { return }
+            callback(image)
 
-            if case let .success(image) = result {
-                if let tiffImage = image.tiffRepresentation {
-                    try! tiffImage.write(
-                        to: faviconCachePath
-                    )
-                }
+            if let tiffImage = image.tiffRepresentation {
+                // Stagger cache expiration to avoid thundering hurds
+                let ttl = self.cacheOptions.defaultExpirationPeriod + UInt(Int.random(in: 0 ..< self.thirtyDays))
+                self.cache.store(
+                    tiffImage,
+                    forKey: domain,
+                    ttl: ttl,
+                    locked: false,
+                    withCallback: { (cacheResponse) in
+                        if cacheResponse.result != .operationSucceeded {
+                            os_log(
+                                "Failed to store favicon for %s to cache: %s",
+                                domain,
+                                cacheResponse.error.localizedDescription
+                            )
+                        }
+                    },
+                    on: self.cacheQueue
+                )
             }
         }
     }
