@@ -180,30 +180,30 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
         viewFor tableColumn: NSTableColumn?,
         row: Int
     ) -> NSView? {
-        if let cellView = tableView.makeView(
+        guard let cellView = tableView.makeView(
             withIdentifier: NSUserInterfaceItemIdentifier(
                 rawValue: "SearchResultCell"
             ),
             owner: nil
-        ) as? HUDTableCellView {
-            let rowResult = self.searchResults[row]
-            cellView.textField?.stringValue = rowResult
-            cellView.imageView?.image = nil
-
-            self.faviconLoader.load(
-                self.searchResults[row],
-                callback: { (maybeFavicon) in
-                    // This is still race-prone
-                    if let favicon = maybeFavicon, rowResult == cellView.textField?.stringValue {
-                        cellView.imageView?.image = favicon
-                    }
-                }
-            )
-
-            return cellView
+        ) as? HUDTableCellView else {
+            return nil
         }
 
-        return nil
+        let rowResult = self.searchResults[row]
+        cellView.textField?.stringValue = rowResult
+        cellView.imageView?.image = nil
+
+        self.faviconLoader.load(
+            self.searchResults[row],
+            callback: { (maybeFavicon) in
+                // This is still race-prone
+                if let favicon = maybeFavicon, rowResult == cellView.textField?.stringValue {
+                    cellView.imageView?.image = favicon
+                }
+            }
+        )
+
+        return cellView
     }
 
     func selectedSearchResult() -> String? {
