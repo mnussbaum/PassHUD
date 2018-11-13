@@ -8,6 +8,7 @@
 
 import Cocoa
 import Carbon
+import os
 
 class HUDViewController: NSViewController  {
     @IBOutlet weak var searchField: NSTextField!
@@ -230,8 +231,16 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
         environment["PATH"] = "/usr/local/opt/gettext/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/bin:/bin"
         task.environment = environment
         task.launch()
-        task.waitUntilExit()
-        // TODO: Check task.terminationStatus
+        DispatchQueue.main.async {
+            task.waitUntilExit()
+            if task.terminationStatus != 0 {
+                os_log(
+                    "Error, non-zero exit code running pass show on %{public}@",
+                    type: .error,
+                    selectedSearchResult
+                )
+            }
+        }
 
         self.view.window?.orderOut(nil)
         NSApp.hide(nil)

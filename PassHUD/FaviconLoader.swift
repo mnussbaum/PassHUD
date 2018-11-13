@@ -112,7 +112,8 @@ class FaviconLoader {
                     withCallback: { (cacheResponse) in
                         if cacheResponse.result != .operationSucceeded {
                             os_log(
-                                "Failed to store favicon for %s to cache: %s",
+                                "Failed to store favicon for %{public}@ to cache: %{public}@",
+                                type: .error,
                                 domain,
                                 cacheResponse.error.localizedDescription
                             )
