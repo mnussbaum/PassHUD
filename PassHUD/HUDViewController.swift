@@ -64,12 +64,7 @@ class HUDViewController: NSViewController  {
 
     func keyDown(with event: NSEvent) -> NSEvent? {
         if Int(event.keyCode) == kVK_Return {
-            if let selectedSearchResult = self.selectedSearchResult() {
-                self.recentlyUsed.addValue(selectedSearchResult)
-            }
-
             self.searchResultsViewClick()
-
             return nil
         } else if Int(event.keyCode) == kVK_DownArrow {
             if !self.isFocused(view: self.searchResultsTableView) {
@@ -223,6 +218,8 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
         guard let selectedSearchResult = self.selectedSearchResult() else {
             return
         }
+
+        self.recentlyUsed.addValue(selectedSearchResult)
 
         let task = Process()
         task.launchPath = "/usr/bin/env"
