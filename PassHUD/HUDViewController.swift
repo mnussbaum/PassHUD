@@ -96,11 +96,8 @@ class HUDViewController: NSViewController  {
             .firstResponder as? NSView else {
             return false
         }
-        if focusedView == view {
-            return true
-        }
 
-        return focusedView.isDescendant(of: view)
+        return focusedView == view || focusedView.isDescendant(of: view)
     }
 }
 
