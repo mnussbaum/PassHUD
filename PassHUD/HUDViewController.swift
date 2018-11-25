@@ -126,18 +126,20 @@ extension HUDViewController: CommandOutputStreamerDelegate {
         // run command. If we see a newer command then we know about
         // then clear the existing results.
 
-        self.lastPassCommandReceivedIndex.set{ (current) -> (Int) in
+        self.lastPassCommandReceivedIndex.set { [weak self] (current) -> (Int) in
+            guard let strongSelf = self else { return current }
+
             if commandIndex < current {
                 return current
             } else if let arguments = arguments, arguments.contains("ls"), commandIndex > current {
                 // Populate recently used above the normal full list shown on empty search
-                self.searchResults = Array(self.recentlyUsed) as! [String]
+                strongSelf.searchResults = Array(strongSelf.recentlyUsed) as! [String]
             } else if commandIndex > current {
-                self.searchResults = []
+                strongSelf.searchResults = []
             }
 
-            let searchResultSet = Set(self.searchResults)
-            self.searchResults = self.searchResults + output
+            let searchResultSet = Set(strongSelf.searchResults)
+            strongSelf.searchResults = strongSelf.searchResults + output
                 .split(separator: "\n")
                 .filter({
                     $0.hasPrefix("├── ") || $0.hasPrefix("└── ") ||
@@ -147,19 +149,22 @@ extension HUDViewController: CommandOutputStreamerDelegate {
                 .map({ $0.replacingOccurrences(of: "\\ ", with: " ") })
                 .filter({ !searchResultSet.contains($0) })
 
-            self.searchResultsTableView.reloadData()
+            strongSelf.searchResultsTableView.reloadData()
             return commandIndex
         }
     }
 
     func runPassCommand(arguments: [String]) {
-        self.lastPassCommandSentIndex.set{ (current) -> (Int) in
+        self.lastPassCommandSentIndex.set { [weak self] (current) -> (Int) in
+            guard let strongSelf = self else { return current }
+
             CommandOutputStreamer(
                 launchPath: "/usr/bin/env",
                 arguments: ["pass"] + arguments,
-                caller: self,
+                caller: strongSelf,
                 index: current
             ).launch()
+
             return current + 1
         }
     }
