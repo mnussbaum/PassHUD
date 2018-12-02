@@ -38,7 +38,7 @@ class HUDViewController: NSViewController  {
 
         self.visualEffect.blendingMode = .behindWindow
         self.visualEffect.state = .followsWindowActiveState
-        self.visualEffect.material = .dark
+        self.visualEffect.material = .ultraDark
         self.visualEffect.layer?.cornerRadius = 5.0
         self.visualEffect.frame = self.view.frame
         self.visualEffect.subviews = [self.view]
