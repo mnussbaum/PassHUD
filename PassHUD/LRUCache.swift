@@ -27,6 +27,8 @@ class DoublyLinkedList {
         if let head = self.head {
             head.previous = newNode
             newNode.next = head
+        } else {
+            self.tail = newNode
         }
         self.head = newNode
 
@@ -51,14 +53,16 @@ class DoublyLinkedList {
     func removeLast() -> LinkedListNode? {
         guard let _ = self.tail else { return nil }
 
-        let previous = self.tail?.previous
-        if previous === self.head {
+        if self.tail === self.head {
             self.head = nil
         }
+
+        let previous = self.tail?.previous
         previous?.next = nil
+        let oldTail = self.tail
         self.tail = previous
 
-        return self.tail
+        return oldTail
     }
 }
 
@@ -81,7 +85,7 @@ class LRUCache: Sequence {
 
         if self.members.count > self.capacity {
             if let removedNode = self.memberList.removeLast() {
-                self.members[removedNode.value] = nil
+                self.members.removeValue(forKey: removedNode.value)
             }
         }
     }

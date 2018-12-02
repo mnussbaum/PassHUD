@@ -18,6 +18,7 @@ class HUDViewController: NSViewController  {
 
     var searchResults: [String] = []
     var recentlyUsed = LRUCache(capacity: 100)
+    var recentlyUsedLock = NSLock()
 
     let faviconLoader = FaviconLoader()
 
@@ -130,7 +131,9 @@ extension HUDViewController: CommandOutputStreamerDelegate {
                 return current
             } else if let arguments = arguments, arguments.contains("ls"), commandIndex > current {
                 // Populate recently used above the normal full list shown on empty search
+                strongSelf.recentlyUsedLock.lock()
                 strongSelf.searchResults = Array(strongSelf.recentlyUsed) as! [String]
+                strongSelf.recentlyUsedLock.unlock()
             } else if commandIndex > current {
                 strongSelf.searchResults = []
             }
@@ -221,7 +224,9 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
             return
         }
 
+        self.recentlyUsedLock.lock()
         self.recentlyUsed.addValue(selectedSearchResult)
+        self.recentlyUsedLock.unlock()
 
         let task = Process()
         task.launchPath = "/usr/bin/env"
