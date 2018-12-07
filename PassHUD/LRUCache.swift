@@ -18,6 +18,12 @@ class LinkedListNode {
     }
 }
 
+extension LinkedListNode: CustomStringConvertible {
+    var description: String {
+        return self.value.description
+    }
+}
+
 class DoublyLinkedList {
     var head: LinkedListNode?
     var tail: LinkedListNode?
@@ -27,6 +33,7 @@ class DoublyLinkedList {
         if let head = self.head {
             head.previous = newNode
             newNode.next = head
+            newNode.previous = nil
         } else {
             self.tail = newNode
         }
@@ -40,18 +47,23 @@ class DoublyLinkedList {
 
         let previous = node.previous
         let next = node.next
-        previous?.next = next
-        next?.previous = previous
+        node.previous?.next = next
+        node.next?.previous = previous
 
         node.next = self.head
+        node.previous = nil
+
         if node === tail {
             self.tail = previous
         }
+        self.head?.previous = node
         self.head = node
     }
 
     func removeLast() -> LinkedListNode? {
-        guard let _ = self.tail else { return nil }
+        guard let originalTail = self.tail else {
+            return nil
+        }
 
         if self.tail === self.head {
             self.head = nil
@@ -59,10 +71,9 @@ class DoublyLinkedList {
 
         let previous = self.tail?.previous
         previous?.next = nil
-        let oldTail = self.tail
         self.tail = previous
 
-        return oldTail
+        return originalTail
     }
 }
 
@@ -72,7 +83,7 @@ class LRUCache: Sequence {
     var memberList = DoublyLinkedList()
 
     init(capacity: Int) {
-        self.capacity = capacity
+        self.capacity = Swift.max(0, capacity)
     }
 
     func addValue(_ value: AnyHashable) {
