@@ -16,11 +16,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         .statusItem(withLength: NSStatusItem.squareLength)
     let hudWindow = HUDWindow()
     var hudViewController: HUDViewController?
+    var hudActive = false
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
             button.image = NSImage(named:NSImage.Name("StatusBarButtonImage"))
-            button.action = #selector(activateHUD(_:))
+            button.action = #selector(toggleHUD(_:))
         }
         
         self.hudWindow.setAppearance()
@@ -28,19 +29,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.hudWindow.contentViewController = self.hudViewController
         
         HotKey.register(UInt32(kVK_ANSI_Slash), modifiers: UInt32(cmdKey), block: {
-            self.activateHUD(nil)
+            self.toggleHUD(nil)
         })
     }
 
-    @objc func activateHUD(_ sender: Any?) {
-        NSApp.activate(ignoringOtherApps: true)
-        self.hudViewController?.activate()
+    @objc func toggleHUD(_ sender: Any?) {
+        if self.hudActive {
+            self.hudWindow.orderOut(sender)
+            self.hudActive = false
+        } else {
+            NSApp.activate(ignoringOtherApps: true)
+            self.hudViewController?.activate()
+            self.hudActive = true
+        }
     }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // TODO: unregister hotkey
-    }
-
-
 }
-
