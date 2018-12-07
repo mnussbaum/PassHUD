@@ -22,11 +22,22 @@ class HUDViewController: NSViewController  {
 
     let faviconLoader = FaviconLoader()
 
-
     let lastPassCommandSentIndex = Atomic(value: 0)
     let lastPassCommandReceivedIndex = Atomic(value: 0)
 
-    func activate() {
+    var active = false
+
+    func toggle(_ sender: Any?) {
+        if self.active {
+            self.active = false
+            self.view.window?.orderOut(sender)
+            NSApp.hide(sender)
+            NSApp.deactivate()
+            return
+        }
+
+        self.active = true
+        NSApp.activate(ignoringOtherApps: true)
         self.view.window?.center()
         self.view.window?.makeKeyAndOrderFront(nil)
         self.searchField.stringValue = ""
@@ -66,6 +77,9 @@ class HUDViewController: NSViewController  {
     func keyDown(with event: NSEvent) -> NSEvent? {
         if Int(event.keyCode) == kVK_Return {
             self.searchResultsViewClick()
+            return nil
+        } else if Int(event.keyCode) == kVK_Escape {
+            self.toggle(nil)
             return nil
         } else if Int(event.keyCode) == kVK_DownArrow {
             if !self.isFocused(view: self.searchResultsTableView) {
@@ -246,8 +260,7 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
             }
         }
 
-        self.view.window?.orderOut(nil)
-        NSApp.hide(nil)
+        self.toggle(nil)
     }
 
     @objc func searchResultsViewClickHandler(_ sender: AnyObject) {

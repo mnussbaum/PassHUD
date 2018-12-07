@@ -16,7 +16,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         .statusItem(withLength: NSStatusItem.squareLength)
     let hudWindow = HUDWindow()
     var hudViewController: HUDViewController?
-    var hudActive = false
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
@@ -34,13 +33,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func toggleHUD(_ sender: Any?) {
-        if self.hudActive {
-            self.hudWindow.orderOut(sender)
-            self.hudActive = false
-        } else {
-            NSApp.activate(ignoringOtherApps: true)
-            self.hudViewController?.activate()
-            self.hudActive = true
-        }
+        self.hudViewController?.toggle(sender)
     }
 }
