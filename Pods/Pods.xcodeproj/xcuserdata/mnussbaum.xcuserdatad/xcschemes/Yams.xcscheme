@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B07AEE37C3BCEE26990A56F0CA52D040"
-               BlueprintName = "SPTPersistentCache"
+               BlueprintIdentifier = "BDEFD861D8B0EC57BD58C252299FE612"
+               BlueprintName = "Yams"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "SPTPersistentCache.framework">
+               BuildableName = "Yams.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -1,9 +1,9 @@
 CODE_SIGN_IDENTITY =
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FavIcon" "${PODS_CONFIGURATION_BUILD_DIR}/SPTPersistentCache"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FavIcon" "${PODS_CONFIGURATION_BUILD_DIR}/SPTPersistentCache" "${PODS_CONFIGURATION_BUILD_DIR}/Yams"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FavIcon/FavIcon.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SPTPersistentCache/SPTPersistentCache.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FavIcon/FavIcon.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SPTPersistentCache/SPTPersistentCache.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Yams/Yams.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/../Frameworks' '@loader_path/../Frameworks'
-OTHER_LDFLAGS = $(inherited) -framework "FavIcon" -framework "SPTPersistentCache"
+OTHER_LDFLAGS = $(inherited) -framework "FavIcon" -framework "SPTPersistentCache" -framework "Yams"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.

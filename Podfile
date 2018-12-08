@@ -5,6 +5,7 @@ target "PassHUD" do
 
   pod "FavIcon", "~> 3.0.4"
   pod "SPTPersistentCache", "~> 1.1.0"
+  pod "Yams", "~> 1.0.1"
 
   target "PassHUDTests" do
     inherit! :search_paths
