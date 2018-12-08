@@ -27,24 +27,29 @@ class HUDViewController: NSViewController  {
     let lastPassCommandSentIndex = Atomic(value: 0)
     let lastPassCommandReceivedIndex = Atomic(value: 0)
 
-    var active = false
+    func windowIsVisible() -> Bool {
+        if let window = self.view.window {
+            return window.occlusionState.contains(.visible)
+        }
+
+        return false
+    }
 
     func toggle(_ sender: Any?) {
-        if self.active {
-            self.active = false
+        if self.windowIsVisible() {
             self.view.window?.orderOut(sender)
             NSApp.hide(sender)
             NSApp.deactivate()
+            self.searchField.stringValue = ""
+            self.controlTextDidChange(Notification(
+                name: Notification.Name(rawValue: "Activate")
+            ))
             return
         }
 
-        self.active = true
         NSApp.activate(ignoringOtherApps: true)
         self.view.window?.center()
         self.view.window?.makeKeyAndOrderFront(nil)
-        self.searchField.stringValue = ""
-
-        self.controlTextDidChange(Notification(name: Notification.Name(rawValue: "Activate")))
     }
 
     override func viewDidLoad() {
@@ -66,6 +71,10 @@ class HUDViewController: NSViewController  {
         self.searchResultsTableView.target = self
         self.searchResultsTableView.action = #selector(searchResultsViewClickHandler(_:))
 
+        self.searchField.stringValue = ""
+        self.controlTextDidChange(Notification(
+            name: Notification.Name(rawValue: "Activate")
+        ))
 
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
             return self.keyDown(with: $0)
