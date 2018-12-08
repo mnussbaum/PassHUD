@@ -20,6 +20,8 @@ class HUDViewController: NSViewController  {
     var recentlyUsed = LRUCache(capacity: 100)
     var recentlyUsedLock = NSLock()
 
+    var passPath: String?
+    var passEnvironment: Dictionary<String, String>?
     let faviconLoader = FaviconLoader()
 
     let lastPassCommandSentIndex = Atomic(value: 0)
@@ -172,9 +174,12 @@ extension HUDViewController: CommandOutputStreamerDelegate {
         self.lastPassCommandSentIndex.set { [weak self] (current) -> (Int) in
             guard let strongSelf = self else { return current }
 
+            let task = strongSelf.buildPassProcess()
+            task.arguments?.append(contentsOf: arguments)
+
             CommandOutputStreamer(
-                launchPath: "/usr/bin/env",
-                arguments: ["pass"] + arguments,
+                task: task,
+                arguments: arguments,
                 caller: strongSelf,
                 index: current
             ).launch()
@@ -242,13 +247,12 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
         self.recentlyUsed.addValue(selectedSearchResult)
         self.recentlyUsedLock.unlock()
 
-        let task = Process()
-        task.launchPath = "/usr/bin/env"
-        task.arguments = ["pass", "show", "--clip", selectedSearchResult]
-        var environment = ProcessInfo.processInfo.environment
-        environment["PATH"] = "/usr/local/opt/gettext/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/bin:/bin"
-        task.environment = environment
+        let task = self.buildPassProcess()
+        task.arguments?.append(
+            contentsOf: ["show", "--clip", selectedSearchResult]
+        )
         task.launch()
+
         DispatchQueue.main.async {
             task.waitUntilExit()
             if task.terminationStatus != 0 {
@@ -266,16 +270,49 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
     @objc func searchResultsViewClickHandler(_ sender: AnyObject) {
         self.searchResultsViewClick()
     }
+
+    func buildPassProcess() -> Process {
+        let task = Process()
+        task.launchPath = "/usr/bin/env"
+
+        var passPath = "pass"
+        if let overridePassPath = self.passPath {
+            passPath = overridePassPath
+        }
+        task.arguments = [passPath]
+
+        if let environment = self.passEnvironment {
+            task.environment = environment
+        }
+
+        return task
+    }
 }
 
 extension HUDViewController {
-    static func create() -> HUDViewController {
+    static func create(config: Optional<Config>) -> HUDViewController {
         let identifier = NSStoryboard.SceneIdentifier("HUDViewController")
         guard let viewController = NSStoryboard(
             name: NSStoryboard.Name("Main"),
             bundle: nil
         ).instantiateController(withIdentifier: identifier) as? HUDViewController else {
             fatalError("Failed to instantiate HUDViewController")
+        }
+
+        guard let config = config else {
+            return viewController
+        }
+
+        if let passPath = config.passPath {
+            viewController.passPath = passPath
+        }
+
+        viewController.passEnvironment = ProcessInfo
+            .processInfo
+            .environment
+
+        for envVarPair in config.passEnv ?? [] {
+            viewController.passEnvironment?[envVarPair.name] = envVarPair.value
         }
 
         return viewController

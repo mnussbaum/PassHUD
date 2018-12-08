@@ -22,11 +22,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image = NSImage(named:NSImage.Name("StatusBarButtonImage"))
             button.action = #selector(toggleHUD(_:))
         }
-        
         self.hudWindow.setAppearance()
-        self.hudViewController = HUDViewController.create()
+        self.hudViewController = HUDViewController.create(
+            config: ConfigParser.ParseConfig()
+        )
         self.hudWindow.contentViewController = self.hudViewController
-        
+
         HotKey.register(UInt32(kVK_ANSI_Slash), modifiers: UInt32(cmdKey), block: {
             self.toggleHUD(nil)
         })
