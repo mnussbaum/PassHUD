@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
-            button.image = NSImage(named:NSImage.Name("StatusBarButtonImage"))
+            button.image = NSImage(named:NSImage.Name("PadLockStatusBarButtonImage"))
             button.action = #selector(toggleHUD(_:))
         }
         self.hudWindow.setAppearance()
