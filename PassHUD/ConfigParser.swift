@@ -16,10 +16,14 @@ struct EnvVarPair: Codable {
     var value: String
 }
 
+struct PassConfig: Codable {
+    var commandPath: Optional<String>
+    var env: Optional<Array<EnvVarPair>>
+}
+
 struct Config: Codable {
-    var passPath: Optional<String>
     var version: Optional<String>
-    var passEnv: Optional<Array<EnvVarPair>>
+    var pass: Optional<PassConfig>
 }
 
 let potentialConfigPaths = [

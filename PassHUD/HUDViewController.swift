@@ -42,7 +42,7 @@ class HUDViewController: NSViewController  {
             NSApp.deactivate()
             self.searchField.stringValue = ""
             self.controlTextDidChange(Notification(
-                name: Notification.Name(rawValue: "Activate")
+                name: Notification.Name(rawValue: "Toggle")
             ))
             return
         }
@@ -128,7 +128,7 @@ class HUDViewController: NSViewController  {
 }
 
 extension HUDViewController: NSTextFieldDelegate {
-    func  controlTextDidChange(_ obj: Notification) {
+    func controlTextDidChange(_ obj: Notification) {
         if self.searchField.stringValue == "" {
             self.runPassCommand(arguments: ["ls"])
         } else {
@@ -312,7 +312,7 @@ extension HUDViewController {
             return viewController
         }
 
-        if let passPath = config.passPath {
+        if let passPath = config.pass?.commandPath {
             viewController.passPath = passPath
         }
 
@@ -320,7 +320,7 @@ extension HUDViewController {
             .processInfo
             .environment
 
-        for envVarPair in config.passEnv ?? [] {
+        for envVarPair in config.pass?.env ?? [] {
             viewController.passEnvironment?[envVarPair.name] = envVarPair.value
         }
 
