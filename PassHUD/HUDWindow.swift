@@ -10,13 +10,14 @@ import Cocoa
 
 class HUDWindow: NSWindow {
     func setAppearance() {
+        self.backgroundColor = .clear
+        self.collectionBehavior = .moveToActiveSpace
+        self.hidesOnDeactivate = true
+        self.isMovableByWindowBackground = true
         self.styleMask.remove(.miniaturizable)
         self.styleMask.remove(.closable)
         self.styleMask.remove(.resizable)
         self.styleMask.insert(.fullSizeContentView)
         self.titlebarAppearsTransparent = true
-        self.isMovableByWindowBackground = true
-        self.backgroundColor = .clear
-        self.hidesOnDeactivate = true
     }
 }
