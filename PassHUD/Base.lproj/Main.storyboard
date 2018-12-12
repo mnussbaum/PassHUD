@@ -729,8 +729,13 @@
                                                             <rect key="frame" x="1" y="1" width="567" height="32"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
+                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6KS-ze-cye">
+                                                                    <rect key="frame" x="3" y="1" width="30" height="30"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="OZP-oz-83O"/>
+                                                                </imageView>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IbI-fX-aOx">
-                                                                    <rect key="frame" x="47" y="7" width="519" height="24"/>
+                                                                    <rect key="frame" x="39" y="-3" width="519" height="32"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="FPx-Ey-7k6">
                                                                         <font key="font" metaFont="system" size="22"/>
@@ -738,11 +743,6 @@
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
-                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6KS-ze-cye">
-                                                                    <rect key="frame" x="3" y="1" width="30" height="30"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="OZP-oz-83O"/>
-                                                                </imageView>
                                                             </subviews>
                                                             <connections>
                                                                 <outlet property="imageView" destination="6KS-ze-cye" id="aY0-2z-DS6"/>
