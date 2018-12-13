@@ -3,6 +3,8 @@
 A HUD-style interface for [zx2c4's `pass`](https://www.passwordstore.org) on
 macOS. Depends on `pass` being installed and configured.
 
+![PassHUD screen shot](PassHUDScreenShot.png)
+
 ### Usage
 
 Trigger PassHUD by clicking its lock menu bar icon, or by using its keyboard
