@@ -31,7 +31,7 @@ one of the following paths:
 * `~/.config/PassHUD/config`
 
 The config file is YAML and can set environment variables for PassHUD's
-execution of `pass`, and an optional path to `pass` itself. If a path isn 't
+execution of `pass`, and an optional path to `pass` itself. If a path isn't
 provided `pass` must be on your `$PATH`. All fields in the config are optional.
 Here's an exhaustive example config file:
 
