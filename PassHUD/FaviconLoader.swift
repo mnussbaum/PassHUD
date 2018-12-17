@@ -61,7 +61,7 @@ class FaviconLoader {
         self.cache.loadData(
             forKey: domain,
             withCallback: { (cacheResponse) in
-                if cacheResponse.result == .operationSucceeded{
+                if cacheResponse.result == .operationSucceeded {
                     callback(NSImage(data: cacheResponse.record.data))
                 } else {
                     self.downloadFavicon(

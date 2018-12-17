@@ -27,6 +27,8 @@ class HUDViewController: NSViewController  {
     let lastPassCommandSentIndex = Atomic(value: 0)
     let lastPassCommandReceivedIndex = Atomic(value: 0)
 
+    let padLockImage = NSImage(named:NSImage.Name("PadLockStatusBarButtonImage"))
+
     func windowIsVisible() -> Bool {
         if let window = self.view.window {
             return window.occlusionState.contains(.visible)
@@ -219,7 +221,7 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
 
         let rowResult = self.searchResults[row]
         cellView.textField?.stringValue = rowResult
-        cellView.imageView?.image = nil
+        cellView.imageView?.image = padLockImage
 
         self.faviconLoader.load(
             self.searchResults[row],
