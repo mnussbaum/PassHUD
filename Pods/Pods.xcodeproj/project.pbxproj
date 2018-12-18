@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -131,7 +131,7 @@
 
 /* Begin PBXFileReference section */
 		042335B6DE76A2832F39289ECF5B503E /* SPTPersistentCache+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SPTPersistentCache+Private.h"; path = "Sources/SPTPersistentCache+Private.h"; sourceTree = "<group>"; };
-		056513CA0915FC6B775C2A8C2A1538AD /* SPTPersistentCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SPTPersistentCache.framework; path = SPTPersistentCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		056513CA0915FC6B775C2A8C2A1538AD /* SPTPersistentCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SPTPersistentCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DD645821DBD1C5EFA24C1C78263BD0 /* Encoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Encoder.swift; path = Sources/Yams/Encoder.swift; sourceTree = "<group>"; };
 		05E22E38E0CD00DFDEC5A5BDDDD1C6A2 /* Pods-PassHUDTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PassHUDTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		087513EAECBA4ADF87AF7EAC3436DF0A /* Parser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Sources/Yams/Parser.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		0E961B257E958DCC38B4534C3E38570C /* SPTPersistentCacheTypeUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTPersistentCacheTypeUtilities.m; path = Sources/SPTPersistentCacheTypeUtilities.m; sourceTree = "<group>"; };
 		0FECBDEE1F967CE0548B171B001D7711 /* String+Yams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Yams.swift"; path = "Sources/Yams/String+Yams.swift"; sourceTree = "<group>"; };
 		159948C3DD82A42E4D2E6A662735D223 /* Pods-PassHUD-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PassHUD-Info.plist"; sourceTree = "<group>"; };
-		16CAE77263998F41588DE8C0452D0141 /* api.c */ = {isa = PBXFileReference; includeInIndex = 1; name = api.c; path = Sources/CYaml/src/api.c; sourceTree = "<group>"; };
+		16CAE77263998F41588DE8C0452D0141 /* api.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = api.c; path = Sources/CYaml/src/api.c; sourceTree = "<group>"; };
 		1812E70A6669135C16A4A2C5EE393709 /* Pods-PassHUDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PassHUDTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1A94A46004A0884D4C522FAB094ED41C /* Pods-PassHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PassHUD-umbrella.h"; sourceTree = "<group>"; };
 		1E91922277DAFEF3A1298CA9A147E6C4 /* SPTPersistentCacheResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTPersistentCacheResponse.m; path = Sources/SPTPersistentCacheResponse.m; sourceTree = "<group>"; };
@@ -147,10 +147,10 @@
 		214DEF41B64AB08F39D9DD729511A712 /* NSError+SPTPersistentCacheDomainErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+SPTPersistentCacheDomainErrors.h"; path = "Sources/Categories/NSError+SPTPersistentCacheDomainErrors.h"; sourceTree = "<group>"; };
 		2617641F18EF70EDCAA632E177F08D52 /* XML.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XML.swift; path = Sources/FavIcon/XML.swift; sourceTree = "<group>"; };
 		264CCA59DE081E6428DB5DEC07E9E9A3 /* SPTPersistentCacheGarbageCollector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTPersistentCacheGarbageCollector.m; path = Sources/SPTPersistentCacheGarbageCollector.m; sourceTree = "<group>"; };
-		2AEB9DADA897AD149A3FC8BCD26757CD /* Pods_PassHUDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PassHUDUITests.framework; path = "Pods-PassHUDUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AEB9DADA897AD149A3FC8BCD26757CD /* Pods_PassHUDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PassHUDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC8B58D016E7729E50163F9F777F487 /* Pods-PassHUDUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PassHUDUITests-Info.plist"; sourceTree = "<group>"; };
 		2E2A4149EC32F090251B80E3AFBF5562 /* FavIcon-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FavIcon-prefix.pch"; sourceTree = "<group>"; };
-		2F77B4170272A9A7D94BBA90B5C42128 /* reader.c */ = {isa = PBXFileReference; includeInIndex = 1; name = reader.c; path = Sources/CYaml/src/reader.c; sourceTree = "<group>"; };
+		2F77B4170272A9A7D94BBA90B5C42128 /* reader.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = reader.c; path = Sources/CYaml/src/reader.c; sourceTree = "<group>"; };
 		30552E77EB8000CF85CF4A7A78AE65FB /* Node.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Node.swift; path = Sources/Yams/Node.swift; sourceTree = "<group>"; };
 		32D30B762C818FE67C12235632D4C616 /* Icon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Icon.swift; path = Sources/FavIcon/Icon.swift; sourceTree = "<group>"; };
 		33016B8AD9D5641B35E663C419F4E154 /* SPTPersistentCache-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SPTPersistentCache-Info.plist"; sourceTree = "<group>"; };
@@ -163,10 +163,10 @@
 		3E8777B74C3BD756CF6B54725A170F7E /* Pods-PassHUDUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PassHUDUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		3EC07B145819878E1DF6FEAF4869A7E7 /* Yams.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Yams.h; path = Sources/Yams/Yams.h; sourceTree = "<group>"; };
 		46ECEB13686F42DE82D0E5A4DD7C7D36 /* yaml.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = yaml.h; path = Sources/CYaml/include/yaml.h; sourceTree = "<group>"; };
-		4765524D81EEBFF13B3598944898935C /* Pods_PassHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PassHUD.framework; path = "Pods-PassHUD.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4765524D81EEBFF13B3598944898935C /* Pods_PassHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PassHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C304CFC3D5086BB9B09284C3804E399 /* Decoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Decoder.swift; path = Sources/Yams/Decoder.swift; sourceTree = "<group>"; };
-		4DCCD1D9FE02C909EBA63D5794324EDB /* parser.c */ = {isa = PBXFileReference; includeInIndex = 1; name = parser.c; path = Sources/CYaml/src/parser.c; sourceTree = "<group>"; };
-		51492EE92D35563F693780BDC963BD39 /* Pods_PassHUDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PassHUDTests.framework; path = "Pods-PassHUDTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DCCD1D9FE02C909EBA63D5794324EDB /* parser.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = parser.c; path = Sources/CYaml/src/parser.c; sourceTree = "<group>"; };
+		51492EE92D35563F693780BDC963BD39 /* Pods_PassHUDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PassHUDTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		530680705A451122269AF6319C035C4F /* Pods-PassHUDUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PassHUDUITests.modulemap"; sourceTree = "<group>"; };
 		5590C2F978243F1A529C708EDBEFC4BE /* SPTPersistentCacheOptions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTPersistentCacheOptions.h; path = include/SPTPersistentCache/SPTPersistentCacheOptions.h; sourceTree = "<group>"; };
 		57DDDD478E0C1A4EA08150D4E32D6F23 /* SPTPersistentCacheDebugUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTPersistentCacheDebugUtilities.h; path = Sources/SPTPersistentCacheDebugUtilities.h; sourceTree = "<group>"; };
@@ -177,13 +177,13 @@
 		7095C87ACF98571CA9450B627CD78D8C /* Pods-PassHUDUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PassHUDUITests.release.xcconfig"; sourceTree = "<group>"; };
 		73B37895AAB291E434C347D01BD489A8 /* FavIcon.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FavIcon.modulemap; sourceTree = "<group>"; };
 		77635896354AE8BAA9CEB8243F08365A /* SPTPersistentCacheHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTPersistentCacheHeader.m; path = Sources/SPTPersistentCacheHeader.m; sourceTree = "<group>"; };
-		7BF2EDA5681CFDA75C15F0985D9CAB5B /* scanner.c */ = {isa = PBXFileReference; includeInIndex = 1; name = scanner.c; path = Sources/CYaml/src/scanner.c; sourceTree = "<group>"; };
+		7BF2EDA5681CFDA75C15F0985D9CAB5B /* scanner.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = scanner.c; path = Sources/CYaml/src/scanner.c; sourceTree = "<group>"; };
 		7E2573E35FA753A4F62BDDA57FE80186 /* Yams.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Yams.xcconfig; sourceTree = "<group>"; };
 		7EA7869AFA111DC50DD24EFFD536D4C7 /* SPTPersistentCache-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SPTPersistentCache-prefix.pch"; sourceTree = "<group>"; };
 		7F31273ECB09A56C30B883A2B9A3B792 /* Yams-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Yams-Info.plist"; sourceTree = "<group>"; };
 		803D88F0B3FA3E999638D8ED14509BAB /* FavIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FavIcon.swift; path = Sources/FavIcon/FavIcon.swift; sourceTree = "<group>"; };
-		81CF61DCDAA552D43BC1510D8370A3B4 /* FavIcon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FavIcon.framework; path = FavIcon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		838D6561460F9C404A4A573A18418EF4 /* emitter.c */ = {isa = PBXFileReference; includeInIndex = 1; name = emitter.c; path = Sources/CYaml/src/emitter.c; sourceTree = "<group>"; };
+		81CF61DCDAA552D43BC1510D8370A3B4 /* FavIcon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FavIcon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		838D6561460F9C404A4A573A18418EF4 /* emitter.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = emitter.c; path = Sources/CYaml/src/emitter.c; sourceTree = "<group>"; };
 		839BD376251BEF553372037479537745 /* SPTPersistentCacheResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTPersistentCacheResponse.h; path = include/SPTPersistentCache/SPTPersistentCacheResponse.h; sourceTree = "<group>"; };
 		895EEBDBB72E2FEE5CC0CF678743264D /* SPTPersistentCache.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SPTPersistentCache.modulemap; sourceTree = "<group>"; };
 		8DE9892A28A144A62E13BDFED00B3CDD /* HTML.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTML.swift; path = Sources/FavIcon/HTML.swift; sourceTree = "<group>"; };
@@ -196,7 +196,7 @@
 		9FD80B30DE01ED3B98AE1E28F9FD40F0 /* Node.Mapping.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Node.Mapping.swift; path = Sources/Yams/Node.Mapping.swift; sourceTree = "<group>"; };
 		A49A4F9E68FCBDDD17A24454E908CA77 /* Tag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tag.swift; path = Sources/Yams/Tag.swift; sourceTree = "<group>"; };
 		A76AA2BC6F0FED264FB12A77507210C8 /* SPTPersistentCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTPersistentCache.h; path = include/SPTPersistentCache/SPTPersistentCache.h; sourceTree = "<group>"; };
-		A806BC62CD3B79B9F99DE3117A3AF742 /* crc32iso3309.c */ = {isa = PBXFileReference; includeInIndex = 1; name = crc32iso3309.c; path = Sources/crc32iso3309.c; sourceTree = "<group>"; };
+		A806BC62CD3B79B9F99DE3117A3AF742 /* crc32iso3309.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = crc32iso3309.c; path = Sources/crc32iso3309.c; sourceTree = "<group>"; };
 		AAAAA525B0118EB1C1EA366B91AFCC8F /* Pods-PassHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PassHUD.release.xcconfig"; sourceTree = "<group>"; };
 		ABBBD87F092ABA401983F80C0818C2BE /* Yams-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Yams-prefix.pch"; sourceTree = "<group>"; };
 		AC0EFB5049298DF51A823FD5975EB8BB /* SPTPersistentCacheTypeUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTPersistentCacheTypeUtilities.h; path = Sources/SPTPersistentCacheTypeUtilities.h; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 		B1404B64D5A61FCBEE23C515125AD1C6 /* Pods-PassHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PassHUD.modulemap"; sourceTree = "<group>"; };
 		B2A1364A682F88D42CC94D5DE634F87F /* Mark.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Mark.swift; path = Sources/Yams/Mark.swift; sourceTree = "<group>"; };
 		B364FCBCCE7724E92938FD622FADF9BF /* SPTPersistentCacheResponse+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SPTPersistentCacheResponse+Private.h"; path = "Sources/SPTPersistentCacheResponse+Private.h"; sourceTree = "<group>"; };
-		B36AB396275697EEE1A5B13BA8A38FE3 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B36AB396275697EEE1A5B13BA8A38FE3 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B4914D42D80458721855A52C3AC689AF /* Yams-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Yams-umbrella.h"; sourceTree = "<group>"; };
 		B6F9C654257892AAA97293BEB9467047 /* Pods-PassHUDTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PassHUDTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		B766193EB2BA2716240BAF1F05EB7BB1 /* IconType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IconType.swift; path = Sources/FavIcon/IconType.swift; sourceTree = "<group>"; };
@@ -213,7 +213,7 @@
 		BC0AE3CE2B5D8025F907B253986E84EF /* Node.Scalar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Node.Scalar.swift; path = Sources/Yams/Node.Scalar.swift; sourceTree = "<group>"; };
 		BFD1FAC1C8B20519DFAFADB79D00686B /* SPTPersistentCacheFileManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTPersistentCacheFileManager.m; path = Sources/SPTPersistentCacheFileManager.m; sourceTree = "<group>"; };
 		C043BECD55D3A9E2AB27B56DDA8AC688 /* Pods-PassHUDUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PassHUDUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		C2CFD7FDEC8816033536FEF4B1F4068C /* Yams.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Yams.framework; path = Yams.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2CFD7FDEC8816033536FEF4B1F4068C /* Yams.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Yams.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F9FA6F8D47051442112173B9A3B0AC /* SPTPersistentCachePosixWrapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTPersistentCachePosixWrapper.h; path = Sources/SPTPersistentCachePosixWrapper.h; sourceTree = "<group>"; };
 		C4EE207393866E074292C26CFA9A0548 /* Pods-PassHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PassHUD.debug.xcconfig"; sourceTree = "<group>"; };
 		C8F03DC20247DC89A160060951AC4610 /* SPTPersistentCacheRecord.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTPersistentCacheRecord.h; path = include/SPTPersistentCache/SPTPersistentCacheRecord.h; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 		DD52E77BD2D80673207FC3A97A815553 /* Node.Sequence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Node.Sequence.swift; path = Sources/Yams/Node.Sequence.swift; sourceTree = "<group>"; };
 		DDBA74CE0606EE239BF453BA3E23540E /* Pods-PassHUDTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PassHUDTests-dummy.m"; sourceTree = "<group>"; };
 		DDDDB297611CB2B6678017921CB04248 /* SPTPersistentCacheHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTPersistentCacheHeader.h; path = include/SPTPersistentCache/SPTPersistentCacheHeader.h; sourceTree = "<group>"; };
-		E2F0303DC29DB81402019BE5A7AE1BEF /* writer.c */ = {isa = PBXFileReference; includeInIndex = 1; name = writer.c; path = Sources/CYaml/src/writer.c; sourceTree = "<group>"; };
+		E2F0303DC29DB81402019BE5A7AE1BEF /* writer.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = writer.c; path = Sources/CYaml/src/writer.c; sourceTree = "<group>"; };
 		E35CB824F2172E8484C54B1BA02690CC /* SPTPersistentCacheObjectDescription.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTPersistentCacheObjectDescription.h; path = Sources/SPTPersistentCacheObjectDescription.h; sourceTree = "<group>"; };
 		E4F31192D319B1A448B5955174FC3021 /* Pods-PassHUD-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PassHUD-frameworks.sh"; sourceTree = "<group>"; };
 		E622F9AB44ED929DA1076E8742C3933F /* NSError+SPTPersistentCacheDomainErrors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSError+SPTPersistentCacheDomainErrors.m"; path = "Sources/Categories/NSError+SPTPersistentCacheDomainErrors.m"; sourceTree = "<group>"; };
@@ -330,7 +330,6 @@
 				3EC07B145819878E1DF6FEAF4869A7E7 /* Yams.h */,
 				B2C8F854AABA9CB765EA7486ADA74100 /* Support Files */,
 			);
-			name = Yams;
 			path = Yams;
 			sourceTree = "<group>";
 		};
@@ -375,7 +374,6 @@
 				2617641F18EF70EDCAA632E177F08D52 /* XML.swift */,
 				54DA907D94F661393457DB55C443B43C /* Support Files */,
 			);
-			name = FavIcon;
 			path = FavIcon;
 			sourceTree = "<group>";
 		};
@@ -502,7 +500,6 @@
 				0E961B257E958DCC38B4534C3E38570C /* SPTPersistentCacheTypeUtilities.m */,
 				F157BAC2894F86F2315C3AB68325EF1C /* Support Files */,
 			);
-			name = SPTPersistentCache;
 			path = SPTPersistentCache;
 			sourceTree = "<group>";
 		};
@@ -736,7 +733,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1010;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -938,7 +935,6 @@
 			baseConfigurationReference = F4434148ED9E83AF6AC339B3B9DB547D /* Pods-PassHUDUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -953,11 +949,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Target Support Files/Pods-PassHUDUITests/Pods-PassHUDUITests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = "Target Support Files/Pods-PassHUDUITests/Pods-PassHUDUITests.modulemap";
@@ -977,7 +969,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 350E9CD0B8CBC570ED6CED5FCD496AF0 /* FavIcon.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -993,11 +984,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/FavIcon/FavIcon-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/FavIcon/FavIcon-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MODULEMAP_FILE = "Target Support Files/FavIcon/FavIcon.modulemap";
 				PRODUCT_MODULE_NAME = FavIcon;
@@ -1005,6 +992,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1015,7 +1003,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7E2573E35FA753A4F62BDDA57FE80186 /* Yams.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1030,11 +1017,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Yams/Yams-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Yams/Yams-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MODULEMAP_FILE = "Target Support Files/Yams/Yams.modulemap";
 				PRODUCT_MODULE_NAME = Yams;
@@ -1116,7 +1099,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7E2573E35FA753A4F62BDDA57FE80186 /* Yams.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1131,11 +1113,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Yams/Yams-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Yams/Yams-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MODULEMAP_FILE = "Target Support Files/Yams/Yams.modulemap";
 				PRODUCT_MODULE_NAME = Yams;
@@ -1153,7 +1131,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 94E8E6A0ED534B2260DFCDB1549DAF46 /* SPTPersistentCache.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1169,11 +1146,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SPTPersistentCache/SPTPersistentCache-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SPTPersistentCache/SPTPersistentCache-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MODULEMAP_FILE = "Target Support Files/SPTPersistentCache/SPTPersistentCache.modulemap";
 				PRODUCT_MODULE_NAME = SPTPersistentCache;
@@ -1191,7 +1164,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 94E8E6A0ED534B2260DFCDB1549DAF46 /* SPTPersistentCache.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1207,11 +1179,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SPTPersistentCache/SPTPersistentCache-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SPTPersistentCache/SPTPersistentCache-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MODULEMAP_FILE = "Target Support Files/SPTPersistentCache/SPTPersistentCache.modulemap";
 				PRODUCT_MODULE_NAME = SPTPersistentCache;
@@ -1229,7 +1197,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 350E9CD0B8CBC570ED6CED5FCD496AF0 /* FavIcon.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1245,11 +1212,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/FavIcon/FavIcon-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/FavIcon/FavIcon-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MODULEMAP_FILE = "Target Support Files/FavIcon/FavIcon.modulemap";
 				PRODUCT_MODULE_NAME = FavIcon;
@@ -1257,6 +1220,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1316,8 +1280,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -1328,7 +1291,6 @@
 			baseConfigurationReference = C4EE207393866E074292C26CFA9A0548 /* Pods-PassHUD.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1343,11 +1305,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Target Support Files/Pods-PassHUD/Pods-PassHUD-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = "Target Support Files/Pods-PassHUD/Pods-PassHUD.modulemap";
@@ -1368,7 +1326,6 @@
 			baseConfigurationReference = 5EAB04A0D75D6F5F8AFB714C9F318F0D /* Pods-PassHUDTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1383,11 +1340,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Target Support Files/Pods-PassHUDTests/Pods-PassHUDTests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = "Target Support Files/Pods-PassHUDTests/Pods-PassHUDTests.modulemap";
@@ -1408,7 +1361,6 @@
 			baseConfigurationReference = 7095C87ACF98571CA9450B627CD78D8C /* Pods-PassHUDUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1423,11 +1375,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Target Support Files/Pods-PassHUDUITests/Pods-PassHUDUITests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = "Target Support Files/Pods-PassHUDUITests/Pods-PassHUDUITests.modulemap";
@@ -1448,7 +1396,6 @@
 			baseConfigurationReference = AAAAA525B0118EB1C1EA366B91AFCC8F /* Pods-PassHUD.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1463,11 +1410,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Target Support Files/Pods-PassHUD/Pods-PassHUD-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = "Target Support Files/Pods-PassHUD/Pods-PassHUD.modulemap";
@@ -1488,7 +1431,6 @@
 			baseConfigurationReference = 1812E70A6669135C16A4A2C5EE393709 /* Pods-PassHUDTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1503,11 +1445,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Target Support Files/Pods-PassHUDTests/Pods-PassHUDTests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = "Target Support Files/Pods-PassHUDTests/Pods-PassHUDTests.modulemap";
