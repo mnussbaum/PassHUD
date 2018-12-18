@@ -13,6 +13,7 @@
 		7B15241821BB32B300D3A481 /* ConfigParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B15241721BB32B300D3A481 /* ConfigParser.swift */; };
 		7B19F82D2183D61C00FD76EF /* HUDTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B19F82B2183D61C00FD76EF /* HUDTableCellView.swift */; };
 		7B19F82F2183EEF200FD76EF /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B19F82E2183EEF200FD76EF /* Atomic.swift */; };
+		7B907F30219AB55D0018D309 /* HUDTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B907F2F219AB55D0018D309 /* HUDTableRowView.swift */; };
 		7B9705AA2184EE950027CF05 /* FaviconLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9705A92184EE950027CF05 /* FaviconLoader.swift */; };
 		7B99C434216F21310025D6ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C433216F21310025D6ED /* AppDelegate.swift */; };
 		7B99C43B216F21340025D6ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B99C439216F21340025D6ED /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		7B19F82B2183D61C00FD76EF /* HUDTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDTableCellView.swift; sourceTree = "<group>"; };
 		7B19F82E2183EEF200FD76EF /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
 		7B5206842186839600DD95A2 /* PassHUD.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = PassHUD.entitlements; sourceTree = "<group>"; };
+		7B907F2F219AB55D0018D309 /* HUDTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDTableRowView.swift; sourceTree = "<group>"; };
 		7B9705A92184EE950027CF05 /* FaviconLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconLoader.swift; sourceTree = "<group>"; };
 		7B99C430216F21310025D6ED /* PassHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B99C433216F21310025D6ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				7B99C47221712A8D0025D6ED /* HUDView.swift */,
 				7B99C47A21713E850025D6ED /* HUDTableView.swift */,
 				7B19F82B2183D61C00FD76EF /* HUDTableCellView.swift */,
+				7B907F2F219AB55D0018D309 /* HUDTableRowView.swift */,
 				7B99C47821713C940025D6ED /* HUDSearchField.swift */,
 				7B99C470216F3C0A0025D6ED /* CommandOutputStreamer.swift */,
 				7B5206842186839600DD95A2 /* PassHUD.entitlements */,
@@ -439,6 +442,7 @@
 				7B15241621B471CB00D3A481 /* LRUCache.swift in Sources */,
 				7B99C434216F21310025D6ED /* AppDelegate.swift in Sources */,
 				7B19F82F2183EEF200FD76EF /* Atomic.swift in Sources */,
+				7B907F30219AB55D0018D309 /* HUDTableRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

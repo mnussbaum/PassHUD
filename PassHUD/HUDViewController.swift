@@ -28,6 +28,12 @@ class HUDViewController: NSViewController  {
     let lastPassCommandReceivedIndex = Atomic(value: 0)
 
     let padLockImage = NSImage(named:NSImage.Name("PadLockStatusBarButtonImage"))
+    let rowViewIdentifier = NSUserInterfaceItemIdentifier(
+        rawValue: "SearchResultRow"
+    )
+    let cellViewIdentifier = NSUserInterfaceItemIdentifier(
+        rawValue: "SearchResultCell"
+    )
 
     func windowIsVisible() -> Bool {
         if let window = self.view.window {
@@ -207,14 +213,33 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
 
     func tableView(
         _ tableView: NSTableView,
+        rowViewForRow row: Int
+    ) -> NSTableRowView? {
+        if let rowView = tableView.makeView(
+            withIdentifier: NSUserInterfaceItemIdentifier(
+                rawValue: "SearchResultRow"
+            ),
+            owner: self
+        ) as? HUDTableRowView {
+            rowView.index = row
+            return rowView
+        } else {
+            let rowView = HUDTableRowView()
+            rowView.identifier = self.rowViewIdentifier
+            rowView.parentTableView = tableView
+            rowView.index = row
+            return rowView
+        }
+    }
+
+    func tableView(
+        _ tableView: NSTableView,
         viewFor tableColumn: NSTableColumn?,
         row: Int
     ) -> NSView? {
         guard let cellView = tableView.makeView(
-            withIdentifier: NSUserInterfaceItemIdentifier(
-                rawValue: "SearchResultCell"
-            ),
-            owner: nil
+            withIdentifier: self.cellViewIdentifier,
+            owner: self
         ) as? HUDTableCellView else {
             return nil
         }
