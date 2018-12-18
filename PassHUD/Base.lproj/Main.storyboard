@@ -697,6 +697,7 @@
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility identifier="Search"/>
                             </textField>
                             <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="34" horizontalPageScroll="10" verticalLineScroll="34" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPS-Tc-gmb">
                                 <rect key="frame" x="0.0" y="0.0" width="570" height="197"/>
@@ -744,6 +745,7 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
+                                                            <accessibility identifier="Search Result"/>
                                                             <connections>
                                                                 <outlet property="imageView" destination="6KS-ze-cye" id="aY0-2z-DS6"/>
                                                                 <outlet property="textField" destination="IbI-fX-aOx" id="tuB-Ti-dDi"/>
@@ -752,6 +754,7 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <accessibility identifier="Search Results"/>
                                         </tableView>
                                     </subviews>
                                 </clipView>
