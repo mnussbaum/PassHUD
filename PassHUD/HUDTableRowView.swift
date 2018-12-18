@@ -43,6 +43,7 @@ class HUDTableRowView: NSTableRowView {
         guard let index = self.index else {
             os_log(
                 "Error, missing row index from HUDTableRowView",
+                log: logger,
                 type: .error
             )
             return
@@ -50,6 +51,7 @@ class HUDTableRowView: NSTableRowView {
         guard let parentTableView = self.parentTableView else {
             os_log(
                 "Error, missing parent table view from HUDTableRowView",
+                log: logger,
                 type: .error
             )
             return

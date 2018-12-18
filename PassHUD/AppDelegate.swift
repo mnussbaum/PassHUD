@@ -8,6 +8,12 @@
 
 import Cocoa
 import Carbon
+import os
+
+let logger = OSLog(
+    subsystem: Bundle.main.bundleIdentifier!,
+    category: "HUD"
+)
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {

@@ -58,6 +58,7 @@ class ConfigParser {
         } catch {
             os_log(
                 "Error parsing config at %{public}@: %{public}@.",
+                log: logger,
                 type: .error,
                 configPath.description,
                 "\(error)"

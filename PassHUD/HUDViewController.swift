@@ -294,6 +294,7 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
             if task.terminationStatus != 0 {
                 os_log(
                     "Error, non-zero exit code running pass show on %{public}@",
+                    log: logger,
                     type: .error,
                     selectedSearchResult
                 )
