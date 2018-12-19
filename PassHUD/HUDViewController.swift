@@ -246,7 +246,7 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
 
         let rowResult = self.searchResults[row]
         cellView.textField?.stringValue = rowResult
-        cellView.imageView?.image = padLockImage
+        cellView.imageView?.image = padLockImage?.copyWithTint(color: rowResult.toRGB())
 
         self.faviconLoader.load(
             self.searchResults[row],
