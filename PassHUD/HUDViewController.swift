@@ -241,12 +241,19 @@ extension HUDViewController: NSTableViewDelegate, NSTableViewDataSource {
             withIdentifier: self.cellViewIdentifier,
             owner: self
         ) as? HUDTableCellView else {
+            os_log(
+                "Error, unable to make new cell view",
+                log: logger,
+                type: .error
+            )
             return nil
         }
 
         let rowResult = self.searchResults[row]
         cellView.textField?.stringValue = rowResult
         cellView.imageView?.image = padLockImage?.copyWithTint(color: rowResult.toRGB())
+
+        cellView.imageView?.wantsLayer = true
 
         self.faviconLoader.load(
             self.searchResults[row],

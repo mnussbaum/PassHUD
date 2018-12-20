@@ -15,6 +15,7 @@
 		7B19F82F2183EEF200FD76EF /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B19F82E2183EEF200FD76EF /* Atomic.swift */; };
 		7B69E7FE21CA0F4F0086CEE8 /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B69E7FD21CA0F4F0086CEE8 /* NSImage.swift */; };
 		7B69E80021CA143F0086CEE8 /* NSString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B69E7FF21CA143F0086CEE8 /* NSString.swift */; };
+		7B69E80221CB37890086CEE8 /* HUDIconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B69E80121CB37890086CEE8 /* HUDIconImageView.swift */; };
 		7B907F30219AB55D0018D309 /* HUDTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B907F2F219AB55D0018D309 /* HUDTableRowView.swift */; };
 		7B9705AA2184EE950027CF05 /* FaviconLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9705A92184EE950027CF05 /* FaviconLoader.swift */; };
 		7B99C434216F21310025D6ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C433216F21310025D6ED /* AppDelegate.swift */; };
@@ -60,6 +61,7 @@
 		7B5206842186839600DD95A2 /* PassHUD.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = PassHUD.entitlements; sourceTree = "<group>"; };
 		7B69E7FD21CA0F4F0086CEE8 /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
 		7B69E7FF21CA143F0086CEE8 /* NSString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSString.swift; sourceTree = "<group>"; };
+		7B69E80121CB37890086CEE8 /* HUDIconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDIconImageView.swift; sourceTree = "<group>"; };
 		7B907F2F219AB55D0018D309 /* HUDTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDTableRowView.swift; sourceTree = "<group>"; };
 		7B9705A92184EE950027CF05 /* FaviconLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconLoader.swift; sourceTree = "<group>"; };
 		7B99C430216F21310025D6ED /* PassHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +165,7 @@
 				7B9705A92184EE950027CF05 /* FaviconLoader.swift */,
 				7B99C47C2171458E0025D6ED /* HUDWindow.swift */,
 				7B99C46E216F2EEA0025D6ED /* HUDViewController.swift */,
+				7B69E80121CB37890086CEE8 /* HUDIconImageView.swift */,
 				7B69E7FD21CA0F4F0086CEE8 /* NSImage.swift */,
 				7B69E7FF21CA143F0086CEE8 /* NSString.swift */,
 				7B15241521B471CB00D3A481 /* LRUCache.swift */,
@@ -445,6 +448,7 @@
 				7B99C47F217157EF0025D6ED /* HotKey.swift in Sources */,
 				7B19F82D2183D61C00FD76EF /* HUDTableCellView.swift in Sources */,
 				7B99C47D2171458E0025D6ED /* HUDWindow.swift in Sources */,
+				7B69E80221CB37890086CEE8 /* HUDIconImageView.swift in Sources */,
 				7B99C47921713C940025D6ED /* HUDSearchField.swift in Sources */,
 				7B99C47B21713E850025D6ED /* HUDTableView.swift in Sources */,
 				7B15241621B471CB00D3A481 /* LRUCache.swift in Sources */,
