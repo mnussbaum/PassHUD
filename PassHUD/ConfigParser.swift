@@ -21,9 +21,15 @@ struct PassConfig: Codable {
     var env: Optional<Array<EnvVarPair>>
 }
 
+struct HotKeyConfig: Codable {
+    var modifiers: Array<String>
+    var key: String
+}
+
 struct Config: Codable {
     var version: Optional<String>
     var pass: Optional<PassConfig>
+    var hotKeys: Optional<Array<HotKeyConfig>>
 }
 
 let potentialConfigPaths = [

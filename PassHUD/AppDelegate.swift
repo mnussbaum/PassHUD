@@ -23,23 +23,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let hudWindow = HUDWindow()
     var hudViewController: HUDViewController?
 
+    let defaultHotKey = HotKeyConfig(modifiers: ["cmd"], key: "/")
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
             button.image = NSImage(named:NSImage.Name("PadLockStatusBarButtonImage"))
             button.action = #selector(toggleHUD(_:))
         }
         self.hudWindow.setAppearance()
+
+        let config = ConfigParser.ParseConfig()
         self.hudViewController = HUDViewController.create(
-            config: ConfigParser.ParseConfig()
+            config: config
         )
         self.hudWindow.contentViewController = self.hudViewController
 
-        HotKey.register(UInt32(kVK_ANSI_Slash), modifiers: UInt32(cmdKey), block: {
-            self.toggleHUD(nil)
-        })
+        self.registerHotKeys(config)
     }
 
     @objc func toggleHUD(_ sender: Any?) {
         self.hudViewController?.toggle(sender)
+    }
+
+    func registerHotKeys(_ config: Config?) {
+        for hotKey in config?.hotKeys ?? [defaultHotKey] {
+            HotKey.register(
+                HotKeyParser.charToKeyCode(hotKey.key),
+                modifiers: HotKeyParser.modifiersToModCode(hotKey.modifiers),
+                block: {
+                    self.toggleHUD(nil)
+                }
+            )
+        }
     }
 }

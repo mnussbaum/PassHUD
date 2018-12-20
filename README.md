@@ -9,7 +9,7 @@ Depends on `pass` being installed and configured.
 ### Usage
 
 Open PassHUD's window by clicking its lock menu bar icon, or by using its
-keyboard shorcut `⌘ ` + `/`.
+default keyboard shorcut of `⌘ ` + `/`.
 
 PassHUD fuzzy-finds passwords as you type. Click passwords to copy them to the
 clipboard or just hit `Enter` once the password is highlighted. PassHUD keeps
@@ -40,9 +40,21 @@ Here's an exhaustive example config file:
 ```yaml
 ---
 version: 1
+
 pass:
   commandPath: ~/a/non/default/path/to/pass
   env:
     - name: PASSWORD_STORE_DIR
       value: ~/a/non/default/password/store/path
-```
+
+# This example registers two arbitrary hot keys. Valid modifiers are: "cmd",
+# "ctrl", "opt" and "shift"
+hotKeys:
+  - modifiers:
+      - cmd
+      - shift
+    key: \
+  - modifiers:
+      - cmd
+    key: /
+ ```

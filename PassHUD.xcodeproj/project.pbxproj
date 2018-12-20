@@ -16,6 +16,7 @@
 		7B69E7FE21CA0F4F0086CEE8 /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B69E7FD21CA0F4F0086CEE8 /* NSImage.swift */; };
 		7B69E80021CA143F0086CEE8 /* NSString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B69E7FF21CA143F0086CEE8 /* NSString.swift */; };
 		7B69E80221CB37890086CEE8 /* HUDIconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B69E80121CB37890086CEE8 /* HUDIconImageView.swift */; };
+		7B69E80421CB81270086CEE8 /* HotKeyParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B69E80321CB81270086CEE8 /* HotKeyParser.swift */; };
 		7B907F30219AB55D0018D309 /* HUDTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B907F2F219AB55D0018D309 /* HUDTableRowView.swift */; };
 		7B9705AA2184EE950027CF05 /* FaviconLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9705A92184EE950027CF05 /* FaviconLoader.swift */; };
 		7B99C434216F21310025D6ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99C433216F21310025D6ED /* AppDelegate.swift */; };
@@ -62,6 +63,7 @@
 		7B69E7FD21CA0F4F0086CEE8 /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
 		7B69E7FF21CA143F0086CEE8 /* NSString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSString.swift; sourceTree = "<group>"; };
 		7B69E80121CB37890086CEE8 /* HUDIconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDIconImageView.swift; sourceTree = "<group>"; };
+		7B69E80321CB81270086CEE8 /* HotKeyParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeyParser.swift; sourceTree = "<group>"; };
 		7B907F2F219AB55D0018D309 /* HUDTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDTableRowView.swift; sourceTree = "<group>"; };
 		7B9705A92184EE950027CF05 /* FaviconLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconLoader.swift; sourceTree = "<group>"; };
 		7B99C430216F21310025D6ED /* PassHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,9 +161,10 @@
 				7B99C462216F23AF0025D6ED /* Assets.xcassets */,
 				7B99C439216F21340025D6ED /* Main.storyboard */,
 				7B99C433216F21310025D6ED /* AppDelegate.swift */,
+				7B69E80321CB81270086CEE8 /* HotKeyParser.swift */,
+				7B99C47E217157EF0025D6ED /* HotKey.swift */,
 				7B15241721BB32B300D3A481 /* ConfigParser.swift */,
 				7B19F82E2183EEF200FD76EF /* Atomic.swift */,
-				7B99C47E217157EF0025D6ED /* HotKey.swift */,
 				7B9705A92184EE950027CF05 /* FaviconLoader.swift */,
 				7B99C47C2171458E0025D6ED /* HUDWindow.swift */,
 				7B99C46E216F2EEA0025D6ED /* HUDViewController.swift */,
@@ -438,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B69E80421CB81270086CEE8 /* HotKeyParser.swift in Sources */,
 				7B99C47321712A8D0025D6ED /* HUDView.swift in Sources */,
 				7B69E80021CA143F0086CEE8 /* NSString.swift in Sources */,
 				7B99C471216F3C0A0025D6ED /* CommandOutputStreamer.swift in Sources */,

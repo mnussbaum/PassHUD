@@ -1,10 +1,7 @@
 //
 //  HotKey.swift
 //  PassHUD
-//
-//  Created by Nussbaum, Michael on 10/12/18.
-//  Copyright © 2018 mnussbaum. All rights reserved.
-//
+//  Source: https://github.com/nathan/hush/blob/master/Hush/HotKey.swift
 
 import Cocoa
 import Carbon
