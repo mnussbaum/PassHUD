@@ -20,9 +20,11 @@ PassHUD. Default `pass` clipboard clearing behavior applies.
 
 ### Installation
 
-Download the project and open it in Xcode. In the menu bar, go to `Product` ->
-`Archive` and click `Distribute App`. Select `Copy App`, and hit `Next` to
-specify a destination for the compiled app.
+Download a compiled binary from [the releases
+page](https://github.com/mnussbaum/PassHUD/releases/). Unzip it, copy it to
+`/Applications`. Try and launch it and then authorize it as an unsigned app in
+the "Security & Privacy" section of System Preferences. Then launch it like a
+normal app or configure OS X to start it at login.
 
 ### Configuration
 
