@@ -4,7 +4,7 @@ A HUD-style fuzzy-finder interface for [zx2c4's
 `pass`](https://www.passwordstore.org) on macOS. Copies passwords to clipboard.
 Depends on `pass` being installed and configured.
 
-<img src="PassHUDScreenShot.png" height="425" width="850" >
+![Screenshot](PassHUDScreenShot.png)
 
 ### Usage
 
