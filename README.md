@@ -20,11 +20,8 @@ PassHUD. Default `pass` clipboard clearing behavior applies.
 
 ### Installation
 
-Download a compiled binary from [the releases
-page](https://github.com/mnussbaum/PassHUD/releases/). Unzip it, copy it to
-`/Applications`. Try and launch it and then authorize it as an unsigned app in
-the "Security & Privacy" section of System Preferences. Then launch it like a
-normal app or configure OS X to start it at login.
+Download and install the latest release from a DMG on [the releases
+page](https://github.com/mnussbaum/PassHUD/releases/).
 
 ### Configuration
 
