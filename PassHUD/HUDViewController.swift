@@ -342,12 +342,11 @@ extension HUDViewController {
         ).instantiateController(withIdentifier: identifier) as? HUDViewController else {
             fatalError("Failed to instantiate HUDViewController")
         }
-
-        guard let config = config else {
+        guard let pathHelperPath = getPathHelperPath() else {
             return viewController
         }
 
-        if let passPath = config.pass?.commandPath {
+        if let passPath = config?.pass?.commandPath {
             viewController.passPath = passPath
         }
 
@@ -355,10 +354,51 @@ extension HUDViewController {
             .processInfo
             .environment
 
-        for envVarPair in config.pass?.env ?? [] {
+        var configSetPathEnvVar = false
+        for envVarPair in config?.pass?.env ?? [] {
             viewController.passEnvironment?[envVarPair.name] = envVarPair.value
+            if envVarPair.name == "PATH" {
+                configSetPathEnvVar = true
+            }
+        }
+        if !configSetPathEnvVar {
+            viewController.passEnvironment?["PATH"] = pathHelperPath
         }
 
         return viewController
     }
+}
+
+func getPathHelperPath() -> String? {
+    let pathHelperTask = Process()
+    pathHelperTask.launchPath = "/usr/libexec/path_helper"
+    pathHelperTask.arguments = ["-s"]
+    let pathHelperPipe = Pipe()
+    pathHelperTask.standardOutput = pathHelperPipe
+    pathHelperTask.launch()
+    guard let pathHelperOutput = NSString(
+        data: pathHelperPipe.fileHandleForReading.readDataToEndOfFile(),
+        encoding: String.Encoding.utf8.rawValue
+    ) else {
+        return nil
+    }
+
+    let strippedPathHelperOutput = pathHelperOutput.trimmingCharacters(in: .whitespacesAndNewlines)
+    guard let pathRegex = try? NSRegularExpression(pattern: "^PATH=\"(.+)\"; export PATH;$") else {
+        return nil
+    }
+
+    guard let pathMatch = pathRegex.firstMatch(
+        in: strippedPathHelperOutput,
+        options: [],
+        range: NSRange(location: 0, length: strippedPathHelperOutput.utf16.count)
+    ) else {
+        return nil
+    }
+
+    guard let pathRange = Range(pathMatch.range(at: 1), in: strippedPathHelperOutput) else {
+        return nil
+    }
+
+    return String(strippedPathHelperOutput[pathRange])
 }
