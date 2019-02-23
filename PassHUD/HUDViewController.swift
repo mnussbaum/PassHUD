@@ -35,7 +35,7 @@ class HUDViewController: NSViewController  {
         rawValue: "SearchResultCell"
     )
 
-    var passOutputLinePrefixRegex: NSRegularExpression?
+    var passResultPrefixRegex: NSRegularExpression?
 
     func windowIsVisible() -> Bool {
         if let window = self.view.window {
@@ -194,9 +194,9 @@ extension HUDViewController: CommandOutputStreamerDelegate {
             var nestingResults: [String] = []
             var lastEntry: (contents: String, depth: Int)? = nil
 
-            guard let passOutputLinePrefixRegex = self?.passOutputLinePrefixRegex else {
+            guard let passResultPrefixRegex = self?.passResultPrefixRegex else {
                 os_log(
-                    "Error, unable to instantiate static NSRegularExpression",
+                    "Missing self.passResultPrefixRegex",
                     log: logger,
                     type: .error
                 )
@@ -204,7 +204,7 @@ extension HUDViewController: CommandOutputStreamerDelegate {
             }
 
             for outputLine in outputLines {
-                guard let passOutputLinePrefix = passOutputLinePrefixRegex.firstMatch(
+                guard let resultPrefix = passResultPrefixRegex.firstMatch(
                     in: outputLine,
                     options: [],
                     range: NSRange(location: 0, length: outputLine.count)
@@ -212,14 +212,13 @@ extension HUDViewController: CommandOutputStreamerDelegate {
                     continue
                 }
 
-                let passOutputLinePrefixStart = outputLine.index(
+                let resultPrefixEnd = outputLine.index(
                     outputLine.startIndex,
-                    offsetBy: passOutputLinePrefix.range.location + passOutputLinePrefix.range.length
+                    offsetBy: resultPrefix.range.location + resultPrefix.range.length
                 )
-                let passOutputLinePrefixRange = passOutputLinePrefixStart..<outputLine.endIndex
                 let currentEntry = (
-                    contents: String(outputLine[passOutputLinePrefixRange]),
-                    depth: passOutputLinePrefix.range.location / 4
+                    contents: String(outputLine[resultPrefixEnd..<outputLine.endIndex]),
+                    depth: resultPrefix.range.location / 4
                 )
 
                 // This means the lastEntry is a terminal entry
@@ -429,7 +428,7 @@ extension HUDViewController {
             viewController.passEnvironment?["PATH"] = pathHelperPath
         }
 
-        viewController.passOutputLinePrefixRegex = try! NSRegularExpression(pattern: "(├── |└── |\\|-- |`-- )")
+        viewController.passResultPrefixRegex = try! NSRegularExpression(pattern: "(├── |└── |\\|-- |`-- )")
 
         return viewController
     }
