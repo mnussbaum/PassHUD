@@ -35,6 +35,8 @@ class HUDViewController: NSViewController  {
         rawValue: "SearchResultCell"
     )
 
+    var passOutputLinePrefixRegex: NSRegularExpression?
+
     func windowIsVisible() -> Bool {
         if let window = self.view.window {
             return window.occlusionState.contains(.visible)
@@ -148,18 +150,13 @@ extension HUDViewController: NSTextFieldDelegate {
 }
 
 extension HUDViewController: CommandOutputStreamerDelegate {
-    func handleOutput(
-        _ output: String,
-        arguments: [String]?,
-        commandIndex: Int
-    ) {
-        // This ensures we only display output for the most recently
-        // run command. If we see a newer command then we know about
-        // then clear the existing results.
-
+    func handleOutput(_ output: String, arguments: [String]?, commandIndex: Int) {
         self.lastPassCommandReceivedIndex.set { [weak self] (current) -> (Int) in
             guard let strongSelf = self else { return current }
 
+            // This ensures we only display output for the most recently
+            // run command. If we see a newer command then we know about
+            // then clear the existing results.
             if commandIndex < current {
                 return current
             } else if let arguments = arguments, arguments.contains("ls"), commandIndex > current {
@@ -170,19 +167,86 @@ extension HUDViewController: CommandOutputStreamerDelegate {
             } else if commandIndex > current {
                 strongSelf.searchResults = []
             }
-
             let searchResultSet = Set(strongSelf.searchResults)
-            strongSelf.searchResults = strongSelf.searchResults + output
-                .split(separator: "\n")
-                .filter({
-                    $0.hasPrefix("├── ") || $0.hasPrefix("└── ") ||
-                    $0.hasPrefix("|-- ") || $0.hasPrefix("`-- ")
-                })
-                .map({ String($0.dropFirst(4)) })
-                .map({ $0.replacingOccurrences(of: "\\ ", with: " ") })
-                .filter({ !searchResultSet.contains($0) })
 
+            let outputLines = output
+                .split(separator: "\n")
+                .map({ $0.replacingOccurrences(of: "\\ ", with: " ") })
+
+            // Each outputLine could either contain a directory or an actual
+            // search result. Actual search results should be shown with their
+            // directory path prefixed in front of them aka
+            // ADirectory/AnotherDirectory/ASearchResult. Directories shouldn't
+            // be shown as individual search results.
+            //
+            // We can only determine if an entry is a directory or a search
+            // result by looking at the following entry. If an entry is indented
+            // more than its preceeding entry then the preceeding entry is a
+            // directory, otherwise the preceeding entry is a terminal entry.
+            //
+            // For each entry we add it to an accumulator of nested results.
+            // When we discover a terminal entry we join together the full
+            // nested result path for it and add it to the search results. We
+            // then truncate the accumulating directory results up to the depth
+            // of the current entry, since we've confirmed we're done with that
+            // deep directory path.
+            var foundResults: [String] = []
+            var nestingResults: [String] = []
+            var lastEntry: (contents: String, depth: Int)? = nil
+
+            guard let passOutputLinePrefixRegex = self?.passOutputLinePrefixRegex else {
+                os_log(
+                    "Error, unable to instantiate static NSRegularExpression",
+                    log: logger,
+                    type: .error
+                )
+                return 0
+            }
+
+            for outputLine in outputLines {
+                guard let passOutputLinePrefix = passOutputLinePrefixRegex.firstMatch(
+                    in: outputLine,
+                    options: [],
+                    range: NSRange(location: 0, length: outputLine.count)
+                ) else {
+                    continue
+                }
+
+                let passOutputLinePrefixStart = outputLine.index(
+                    outputLine.startIndex,
+                    offsetBy: passOutputLinePrefix.range.location + passOutputLinePrefix.range.length
+                )
+                let passOutputLinePrefixRange = passOutputLinePrefixStart..<outputLine.endIndex
+                let currentEntry = (
+                    contents: String(outputLine[passOutputLinePrefixRange]),
+                    depth: passOutputLinePrefix.range.location / 4
+                )
+
+                // This means the lastEntry is a terminal entry
+                if let foundLastEntry = lastEntry, currentEntry.depth <= foundLastEntry.depth {
+                    let lastSearchResult = nestingResults.joined(separator: "/")
+                    if !searchResultSet.contains(lastSearchResult) {
+                        foundResults.append(lastSearchResult)
+                    }
+                    // Remove directories with indent >= current element's indent
+                    nestingResults.removeSubrange(currentEntry.depth...)
+                }
+                nestingResults.append(currentEntry.contents)
+                lastEntry = currentEntry
+            }
+
+            // The loop above only adds terminal entries (aka not directories)
+            // to the foundResults. Unfortunately the final output line could
+            // either be a directory or a terminal entry. We always add a final
+            // entry to the search results since it's likely a terminal entry,
+            // if it is a directory that will show though, and that's a bug.
+            if lastEntry != nil && nestingResults.count > 0 {
+                foundResults.append(nestingResults.joined(separator: "/"))
+            }
+
+            strongSelf.searchResults = strongSelf.searchResults + foundResults
             strongSelf.searchResultsTableView.reloadData()
+
             return commandIndex
         }
     }
@@ -364,6 +428,8 @@ extension HUDViewController {
         if !configSetPathEnvVar {
             viewController.passEnvironment?["PATH"] = pathHelperPath
         }
+
+        viewController.passOutputLinePrefixRegex = try! NSRegularExpression(pattern: "(├── |└── |\\|-- |`-- )")
 
         return viewController
     }
