@@ -8,8 +8,8 @@ Depends on `pass` being installed and configured.
 
 ### Usage
 
-Open PassHUD's window by clicking its lock menu bar icon, or by using its
-default keyboard shorcut of `⌘ ` + `/`.
+Run the PassHUD application, then open PassHUD's window by clicking its lock
+menu bar icon, or by using its default keyboard shorcut of `⌘ ` + `/`.
 
 PassHUD fuzzy-finds passwords as you type. Click passwords to copy them to the
 clipboard or just hit `Enter` once the password is highlighted. PassHUD keeps
